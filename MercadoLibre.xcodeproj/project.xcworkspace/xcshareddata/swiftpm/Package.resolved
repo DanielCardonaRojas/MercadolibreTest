@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "APIClient",
+        "repositoryURL": "https://github.com/DanielCardonaRojas/APIClient",
+        "state": {
+          "branch": null,
+          "revision": "0b5696e865f437c28264b0914794c0aff162094c",
+          "version": null
+        }
+      },
+      {
+        "package": "KeypathAutolayout",
+        "repositoryURL": "https://github.com/DanielCardonaRojas/KeyPathAutoLayout",
+        "state": {
+          "branch": null,
+          "revision": "074bdd5ecf670963f2e28b7408b9bf648a733bea",
+          "version": "1.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
