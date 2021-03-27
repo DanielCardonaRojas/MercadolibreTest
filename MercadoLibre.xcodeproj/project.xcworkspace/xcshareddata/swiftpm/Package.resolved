@@ -6,13 +6,13 @@
         "repositoryURL": "https://github.com/DanielCardonaRojas/APIClient",
         "state": {
           "branch": null,
-          "revision": "0b5696e865f437c28264b0914794c0aff162094c",
-          "version": null
+          "revision": "8c253124218bfcb5f64c3caa540e4ce025cb076f",
+          "version": "1.2.0"
         }
       },
       {
         "package": "KeypathAutolayout",
-        "repositoryURL": "https://github.com/DanielCardonaRojas/KeyPathAutoLayout",
+        "repositoryURL": "https://github.com/DanielCardonaRojas/KeypathAutolayout",
         "state": {
           "branch": null,
           "revision": "074bdd5ecf670963f2e28b7408b9bf648a733bea",

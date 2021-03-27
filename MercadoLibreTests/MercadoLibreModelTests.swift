@@ -8,7 +8,7 @@
 import XCTest
 @testable import MercadoLibre
 
-class MercadoModelLibreTests: XCTestCase {
+class MercadoLibreModelTests: XCTestCase {
 
     func testCanParseSearchResults() {
         let parsed = parseFileNamed("meli_search_results.json", as: SearchResults.self)
@@ -24,7 +24,7 @@ class MercadoModelLibreTests: XCTestCase {
     
     
     func parseFileNamed<T: Decodable>(_ fileName: String, as type: T.Type) -> T? {
-           let fileBundle = Bundle(for: MercadoModelLibreTests.self)
+           let fileBundle = Bundle(for: MercadoLibreModelTests.self)
         
            guard let url = fileBundle.resourceURL?.appendingPathComponent(fileName) else {
                return nil

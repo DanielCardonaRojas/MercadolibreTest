@@ -10,7 +10,7 @@ import Combine
 import APIClient
 
 class SearchViewModel {
-    lazy var client = APIClient(baseURL: URL(string: SearchAPI.baseUrl)!)
+    lazy var client = APIClient(baseURL: URL(string: MercadoLibreAPI.baseUrl)!)
 
     var isLoading: Bool = false
     let pageSize = 7
@@ -25,7 +25,7 @@ class SearchViewModel {
         }
     }
 
-    var disposables = Set<AnyCancellable>()
+    private var disposables = Set<AnyCancellable>()
     
     var offset: Int = 0
     var totalItems: Int?
@@ -51,7 +51,7 @@ class SearchViewModel {
         print("Loading items \(offset) through: \(offset + limit - 1)")
         
         isLoading = true
-        client.request(SearchAPI.search(query: searchString, offset: offset, limit: limit))
+        client.request(MercadoLibreAPI.Search.find(query: searchString, offset: offset, limit: limit))
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 self.isLoading = false

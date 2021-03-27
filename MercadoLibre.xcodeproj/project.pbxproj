@@ -7,22 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C4076920260E75740005ECCF /* APIClient in Frameworks */ = {isa = PBXBuildFile; productRef = C407691F260E75740005ECCF /* APIClient */; };
 		C4076924260E76F50005ECCF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4076923260E76F50005ECCF /* SearchViewModel.swift */; };
 		C4076928260E78C70005ECCF /* ProductSearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4076927260E78C70005ECCF /* ProductSearchResultsCell.swift */; };
-		C407692F260E79290005ECCF /* KeypathAutolayout in Frameworks */ = {isa = PBXBuildFile; productRef = C407692E260E79290005ECCF /* KeypathAutolayout */; };
-		C41A52AB260E6F9F005FD9C3 /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41A52AA260E6F9F005FD9C3 /* SearchAPI.swift */; };
+		C41A52AB260E6F9F005FD9C3 /* MercadoLibreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41A52AA260E6F9F005FD9C3 /* MercadoLibreAPI.swift */; };
+		C43231A3260F760D00733E1A /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43231A2260F760D00733E1A /* ProductDetails.swift */; };
+		C43231A7260F791300733E1A /* product_details.json in Resources */ = {isa = PBXBuildFile; fileRef = C43231A6260F791300733E1A /* product_details.json */; };
+		C43231AF260F797500733E1A /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43231AE260F797500733E1A /* ProductDetailsViewModel.swift */; };
+		C43231B5260F7B0600733E1A /* MercadoLibreViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43231B4260F7B0600733E1A /* MercadoLibreViewModelTests.swift */; };
+		C43231C4260F7FCF00733E1A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C43231C3260F7FCF00733E1A /* SDWebImage */; };
+		C43231C9260F801100733E1A /* APIClient in Frameworks */ = {isa = PBXBuildFile; productRef = C43231C8260F801100733E1A /* APIClient */; };
+		C43231CE260F802800733E1A /* KeypathAutolayout in Frameworks */ = {isa = PBXBuildFile; productRef = C43231CD260F802800733E1A /* KeypathAutolayout */; };
+		C43231D2260F847200733E1A /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43231D1260F847200733E1A /* ProductDetailsViewController.swift */; };
 		C47A5419260E63D10093335D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A5418260E63D10093335D /* AppDelegate.swift */; };
 		C47A541B260E63D10093335D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A541A260E63D10093335D /* SceneDelegate.swift */; };
 		C47A541D260E63D10093335D /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A541C260E63D10093335D /* SearchResultsViewController.swift */; };
 		C47A5420260E63D10093335D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47A541E260E63D10093335D /* Main.storyboard */; };
 		C47A5422260E63D30093335D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47A5421260E63D30093335D /* Assets.xcassets */; };
 		C47A5425260E63D30093335D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47A5423260E63D30093335D /* LaunchScreen.storyboard */; };
-		C47A5430260E63D30093335D /* MercadoLibreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A542F260E63D30093335D /* MercadoLibreTests.swift */; };
+		C47A5430260E63D30093335D /* MercadoLibreModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A542F260E63D30093335D /* MercadoLibreModelTests.swift */; };
 		C47A544D260E64CE0093335D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A544C260E64CE0093335D /* SearchResult.swift */; };
 		C47A5453260E65400093335D /* meli_search_results.json in Resources */ = {isa = PBXBuildFile; fileRef = C47A5452260E65400093335D /* meli_search_results.json */; };
 		C4CB8682260EBC2C00C2E0B2 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CB8681260EBC2C00C2E0B2 /* Array+Extensions.swift */; };
-		C4CB8688260EE2B800C2E0B2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C4CB8687260EE2B800C2E0B2 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +43,12 @@
 /* Begin PBXFileReference section */
 		C4076923260E76F50005ECCF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		C4076927260E78C70005ECCF /* ProductSearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchResultsCell.swift; sourceTree = "<group>"; };
-		C41A52AA260E6F9F005FD9C3 /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
+		C41A52AA260E6F9F005FD9C3 /* MercadoLibreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLibreAPI.swift; sourceTree = "<group>"; };
+		C43231A2260F760D00733E1A /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
+		C43231A6260F791300733E1A /* product_details.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = product_details.json; sourceTree = "<group>"; };
+		C43231AE260F797500733E1A /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
+		C43231B4260F7B0600733E1A /* MercadoLibreViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLibreViewModelTests.swift; sourceTree = "<group>"; };
+		C43231D1260F847200733E1A /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		C47A5415260E63D10093335D /* MercadoLibre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MercadoLibre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47A5418260E63D10093335D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C47A541A260E63D10093335D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +58,7 @@
 		C47A5424260E63D30093335D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C47A5426260E63D30093335D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C47A542B260E63D30093335D /* MercadoLibreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MercadoLibreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C47A542F260E63D30093335D /* MercadoLibreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLibreTests.swift; sourceTree = "<group>"; };
+		C47A542F260E63D30093335D /* MercadoLibreModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLibreModelTests.swift; sourceTree = "<group>"; };
 		C47A5431260E63D30093335D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C47A544C260E64CE0093335D /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		C47A5452260E65400093335D /* meli_search_results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meli_search_results.json; sourceTree = "<group>"; };
@@ -60,9 +70,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4CB8688260EE2B800C2E0B2 /* SDWebImage in Frameworks */,
-				C407692F260E79290005ECCF /* KeypathAutolayout in Frameworks */,
-				C4076920260E75740005ECCF /* APIClient in Frameworks */,
+				C43231C9260F801100733E1A /* APIClient in Frameworks */,
+				C43231CE260F802800733E1A /* KeypathAutolayout in Frameworks */,
+				C43231C4260F7FCF00733E1A /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +91,7 @@
 			children = (
 				C47A541C260E63D10093335D /* SearchResultsViewController.swift */,
 				C4076927260E78C70005ECCF /* ProductSearchResultsCell.swift */,
+				C43231D1260F847200733E1A /* ProductDetailsViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -89,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				C4076923260E76F50005ECCF /* SearchViewModel.swift */,
+				C43231AE260F797500733E1A /* ProductDetailsViewModel.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -97,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				C47A544B260E64620093335D /* Models */,
-				C41A52AA260E6F9F005FD9C3 /* SearchAPI.swift */,
+				C41A52AA260E6F9F005FD9C3 /* MercadoLibreAPI.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -149,8 +161,9 @@
 			isa = PBXGroup;
 			children = (
 				C47A5451260E64DD0093335D /* Fixtures */,
-				C47A542F260E63D30093335D /* MercadoLibreTests.swift */,
+				C47A542F260E63D30093335D /* MercadoLibreModelTests.swift */,
 				C47A5431260E63D30093335D /* Info.plist */,
+				C43231B4260F7B0600733E1A /* MercadoLibreViewModelTests.swift */,
 			);
 			path = MercadoLibreTests;
 			sourceTree = "<group>";
@@ -159,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				C47A544C260E64CE0093335D /* SearchResult.swift */,
+				C43231A2260F760D00733E1A /* ProductDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,6 +180,7 @@
 		C47A5451260E64DD0093335D /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				C43231A6260F791300733E1A /* product_details.json */,
 				C47A5452260E65400093335D /* meli_search_results.json */,
 			);
 			path = Fixtures;
@@ -196,9 +211,9 @@
 			);
 			name = MercadoLibre;
 			packageProductDependencies = (
-				C407691F260E75740005ECCF /* APIClient */,
-				C407692E260E79290005ECCF /* KeypathAutolayout */,
-				C4CB8687260EE2B800C2E0B2 /* SDWebImage */,
+				C43231C3260F7FCF00733E1A /* SDWebImage */,
+				C43231C8260F801100733E1A /* APIClient */,
+				C43231CD260F802800733E1A /* KeypathAutolayout */,
 			);
 			productName = MercadoLibre;
 			productReference = C47A5415260E63D10093335D /* MercadoLibre.app */;
@@ -250,9 +265,9 @@
 			);
 			mainGroup = C47A540C260E63D10093335D;
 			packageReferences = (
-				C407691E260E75740005ECCF /* XCRemoteSwiftPackageReference "APIClient" */,
-				C407692D260E79290005ECCF /* XCRemoteSwiftPackageReference "KeyPathAutoLayout" */,
-				C4CB8686260EE2B800C2E0B2 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				C43231C2260F7FCF00733E1A /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				C43231C7260F801100733E1A /* XCRemoteSwiftPackageReference "APIClient" */,
+				C43231CC260F802800733E1A /* XCRemoteSwiftPackageReference "KeypathAutolayout" */,
 			);
 			productRefGroup = C47A5416260E63D10093335D /* Products */;
 			projectDirPath = "";
@@ -279,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C43231A7260F791300733E1A /* product_details.json in Resources */,
 				C47A5453260E65400093335D /* meli_search_results.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +307,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4076924260E76F50005ECCF /* SearchViewModel.swift in Sources */,
-				C41A52AB260E6F9F005FD9C3 /* SearchAPI.swift in Sources */,
+				C43231AF260F797500733E1A /* ProductDetailsViewModel.swift in Sources */,
+				C43231D2260F847200733E1A /* ProductDetailsViewController.swift in Sources */,
+				C43231A3260F760D00733E1A /* ProductDetails.swift in Sources */,
+				C41A52AB260E6F9F005FD9C3 /* MercadoLibreAPI.swift in Sources */,
 				C47A541D260E63D10093335D /* SearchResultsViewController.swift in Sources */,
 				C4CB8682260EBC2C00C2E0B2 /* Array+Extensions.swift in Sources */,
 				C47A5419260E63D10093335D /* AppDelegate.swift in Sources */,
@@ -305,7 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C47A5430260E63D30093335D /* MercadoLibreTests.swift in Sources */,
+				C43231B5260F7B0600733E1A /* MercadoLibreViewModelTests.swift in Sources */,
+				C47A5430260E63D30093335D /* MercadoLibreModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,23 +586,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C407691E260E75740005ECCF /* XCRemoteSwiftPackageReference "APIClient" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DanielCardonaRojas/APIClient";
-			requirement = {
-				kind = revision;
-				revision = 0b5696e865f437c28264b0914794c0aff162094c;
-			};
-		};
-		C407692D260E79290005ECCF /* XCRemoteSwiftPackageReference "KeyPathAutoLayout" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DanielCardonaRojas/KeyPathAutoLayout";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
-			};
-		};
-		C4CB8686260EE2B800C2E0B2 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		C43231C2260F7FCF00733E1A /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -590,23 +594,39 @@
 				minimumVersion = 5.10.4;
 			};
 		};
+		C43231C7260F801100733E1A /* XCRemoteSwiftPackageReference "APIClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DanielCardonaRojas/APIClient";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+		C43231CC260F802800733E1A /* XCRemoteSwiftPackageReference "KeypathAutolayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DanielCardonaRojas/KeypathAutolayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C407691F260E75740005ECCF /* APIClient */ = {
+		C43231C3260F7FCF00733E1A /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C407691E260E75740005ECCF /* XCRemoteSwiftPackageReference "APIClient" */;
+			package = C43231C2260F7FCF00733E1A /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		C43231C8260F801100733E1A /* APIClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C43231C7260F801100733E1A /* XCRemoteSwiftPackageReference "APIClient" */;
 			productName = APIClient;
 		};
-		C407692E260E79290005ECCF /* KeypathAutolayout */ = {
+		C43231CD260F802800733E1A /* KeypathAutolayout */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C407692D260E79290005ECCF /* XCRemoteSwiftPackageReference "KeyPathAutoLayout" */;
+			package = C43231CC260F802800733E1A /* XCRemoteSwiftPackageReference "KeypathAutolayout" */;
 			productName = KeypathAutolayout;
-		};
-		C4CB8687260EE2B800C2E0B2 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C4CB8686260EE2B800C2E0B2 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
