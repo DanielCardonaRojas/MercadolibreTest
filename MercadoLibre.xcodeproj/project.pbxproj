@@ -18,6 +18,10 @@
 		C43231C9260F801100733E1A /* APIClient in Frameworks */ = {isa = PBXBuildFile; productRef = C43231C8260F801100733E1A /* APIClient */; };
 		C43231CE260F802800733E1A /* KeypathAutolayout in Frameworks */ = {isa = PBXBuildFile; productRef = C43231CD260F802800733E1A /* KeypathAutolayout */; };
 		C43231D2260F847200733E1A /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43231D1260F847200733E1A /* ProductDetailsViewController.swift */; };
+		C43231D6260F860F00733E1A /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43231D5260F860F00733E1A /* UIStoryboard+Extensions.swift */; };
+		C43231DC260F8B8700733E1A /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43231DB260F8B8700733E1A /* ProductDetailsView.swift */; };
+		C4793821260FB28900BE5187 /* Auk in Frameworks */ = {isa = PBXBuildFile; productRef = C4793820260FB28900BE5187 /* Auk */; };
+		C4793827260FCA4900BE5187 /* product_descriptions.json in Resources */ = {isa = PBXBuildFile; fileRef = C4793826260FCA4900BE5187 /* product_descriptions.json */; };
 		C47A5419260E63D10093335D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A5418260E63D10093335D /* AppDelegate.swift */; };
 		C47A541B260E63D10093335D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A541A260E63D10093335D /* SceneDelegate.swift */; };
 		C47A541D260E63D10093335D /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A541C260E63D10093335D /* SearchResultsViewController.swift */; };
@@ -49,6 +53,9 @@
 		C43231AE260F797500733E1A /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		C43231B4260F7B0600733E1A /* MercadoLibreViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLibreViewModelTests.swift; sourceTree = "<group>"; };
 		C43231D1260F847200733E1A /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		C43231D5260F860F00733E1A /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		C43231DB260F8B8700733E1A /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		C4793826260FCA4900BE5187 /* product_descriptions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = product_descriptions.json; sourceTree = "<group>"; };
 		C47A5415260E63D10093335D /* MercadoLibre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MercadoLibre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47A5418260E63D10093335D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C47A541A260E63D10093335D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4793821260FB28900BE5187 /* Auk in Frameworks */,
 				C43231C9260F801100733E1A /* APIClient in Frameworks */,
 				C43231CE260F802800733E1A /* KeypathAutolayout in Frameworks */,
 				C43231C4260F7FCF00733E1A /* SDWebImage in Frameworks */,
@@ -90,8 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				C47A541C260E63D10093335D /* SearchResultsViewController.swift */,
-				C4076927260E78C70005ECCF /* ProductSearchResultsCell.swift */,
 				C43231D1260F847200733E1A /* ProductDetailsViewController.swift */,
+				C4076927260E78C70005ECCF /* ProductSearchResultsCell.swift */,
+				C43231DB260F8B8700733E1A /* ProductDetailsView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -180,6 +189,7 @@
 		C47A5451260E64DD0093335D /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				C4793826260FCA4900BE5187 /* product_descriptions.json */,
 				C43231A6260F791300733E1A /* product_details.json */,
 				C47A5452260E65400093335D /* meli_search_results.json */,
 			);
@@ -190,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				C4CB8681260EBC2C00C2E0B2 /* Array+Extensions.swift */,
+				C43231D5260F860F00733E1A /* UIStoryboard+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -214,6 +225,7 @@
 				C43231C3260F7FCF00733E1A /* SDWebImage */,
 				C43231C8260F801100733E1A /* APIClient */,
 				C43231CD260F802800733E1A /* KeypathAutolayout */,
+				C4793820260FB28900BE5187 /* Auk */,
 			);
 			productName = MercadoLibre;
 			productReference = C47A5415260E63D10093335D /* MercadoLibre.app */;
@@ -268,6 +280,7 @@
 				C43231C2260F7FCF00733E1A /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				C43231C7260F801100733E1A /* XCRemoteSwiftPackageReference "APIClient" */,
 				C43231CC260F802800733E1A /* XCRemoteSwiftPackageReference "KeypathAutolayout" */,
+				C479381F260FB28900BE5187 /* XCRemoteSwiftPackageReference "Auk" */,
 			);
 			productRefGroup = C47A5416260E63D10093335D /* Products */;
 			projectDirPath = "";
@@ -295,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C43231A7260F791300733E1A /* product_details.json in Resources */,
+				C4793827260FCA4900BE5187 /* product_descriptions.json in Resources */,
 				C47A5453260E65400093335D /* meli_search_results.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,9 +326,11 @@
 				C43231A3260F760D00733E1A /* ProductDetails.swift in Sources */,
 				C41A52AB260E6F9F005FD9C3 /* MercadoLibreAPI.swift in Sources */,
 				C47A541D260E63D10093335D /* SearchResultsViewController.swift in Sources */,
+				C43231D6260F860F00733E1A /* UIStoryboard+Extensions.swift in Sources */,
 				C4CB8682260EBC2C00C2E0B2 /* Array+Extensions.swift in Sources */,
 				C47A5419260E63D10093335D /* AppDelegate.swift in Sources */,
 				C47A544D260E64CE0093335D /* SearchResult.swift in Sources */,
+				C43231DC260F8B8700733E1A /* ProductDetailsView.swift in Sources */,
 				C4076928260E78C70005ECCF /* ProductSearchResultsCell.swift in Sources */,
 				C47A541B260E63D10093335D /* SceneDelegate.swift in Sources */,
 			);
@@ -610,6 +626,14 @@
 				minimumVersion = 1.0.2;
 			};
 		};
+		C479381F260FB28900BE5187 /* XCRemoteSwiftPackageReference "Auk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DanielCardonaRojas/Auk";
+			requirement = {
+				kind = revision;
+				revision = 51b36d94391351f2360374713cf012176acaf4c9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -627,6 +651,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C43231CC260F802800733E1A /* XCRemoteSwiftPackageReference "KeypathAutolayout" */;
 			productName = KeypathAutolayout;
+		};
+		C4793820260FB28900BE5187 /* Auk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C479381F260FB28900BE5187 /* XCRemoteSwiftPackageReference "Auk" */;
+			productName = Auk;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

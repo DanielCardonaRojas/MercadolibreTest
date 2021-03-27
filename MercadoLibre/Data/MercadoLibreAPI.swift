@@ -26,6 +26,10 @@ enum MercadoLibreAPI {
         static func getById(_ id: String) -> Endpoint<ProductDetails> {
             Endpoint(method: .get, path: "/items/\(id)")
         }
+        
+        static func getDescriptions(_ id: String) -> Endpoint<[ProductDetails.Description]> {
+            Endpoint(method: .get, path: "/items/\(id)/descriptions")
+        }
     }
 }
 

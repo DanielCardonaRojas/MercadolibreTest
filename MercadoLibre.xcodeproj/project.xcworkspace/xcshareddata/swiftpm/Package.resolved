@@ -11,12 +11,30 @@
         }
       },
       {
+        "package": "Auk",
+        "repositoryURL": "https://github.com/DanielCardonaRojas/Auk",
+        "state": {
+          "branch": null,
+          "revision": "51b36d94391351f2360374713cf012176acaf4c9",
+          "version": null
+        }
+      },
+      {
         "package": "KeypathAutolayout",
         "repositoryURL": "https://github.com/DanielCardonaRojas/KeypathAutolayout",
         "state": {
           "branch": null,
           "revision": "074bdd5ecf670963f2e28b7408b9bf648a733bea",
           "version": "1.0.2"
+        }
+      },
+      {
+        "package": "moa",
+        "repositoryURL": "https://github.com/evgenyneu/moa",
+        "state": {
+          "branch": null,
+          "revision": "844b6eb4123d0f3dba7130554b71785fcd0dabc8",
+          "version": "12.0.0"
         }
       },
       {

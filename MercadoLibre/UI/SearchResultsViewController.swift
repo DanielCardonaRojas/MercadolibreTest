@@ -14,12 +14,16 @@ class SearchResultsViewController: UIViewController {
     let viewModel: SearchViewModel = SearchViewModel()
 
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var searchBar: UISearchBar!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
         setupCollectionView()
+        
+        let search = UISearchController(searchResultsController: nil)
+        search.searchBar.searchBarStyle = .prominent
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.delegate = self
+        self.navigationItem.searchController = search
         
     }
     
@@ -56,7 +60,7 @@ class SearchResultsViewController: UIViewController {
 
 }
 
-// MARK: - UICollectionViewDelegate
+// MARK: - UICollectionViewDataSourcePrefetching
 extension SearchResultsViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         print("Prefetching")
@@ -78,7 +82,7 @@ extension SearchResultsViewController: UICollectionViewDataSourcePrefetching {
 }
 
 
-// MARK: -
+// MARK: - UICollectionViewDelegateFlowLayout
 extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 70)
@@ -87,6 +91,15 @@ extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionViewDelegate
 extension SearchResultsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = viewModel.products[safe: indexPath.row] else {
+            return
+        }
+        
+        let vc = UIStoryboard.main.instantiate(ProductDetailsViewController.self)!
+        vc.itemId = item.id
+        navigationController?.pushViewController(vc, animated: true)
+
+        
     }
 
 }

@@ -12,8 +12,24 @@ struct ProductDetails: Decodable {
         let url: String
     }
     
+    struct Description: Decodable {
+        let plainText: String
+        
+        enum CodingKeys: String, CodingKey {
+            case plainText = "plain_text"
+        }
+    }
+    
     let title: String
     let price: Double
     let pictures: [Picture]
     
+    var descriptions: [Description]? // Gets excluded from coding keys because will be set manually
+    
+    enum CodingKeys: String, CodingKey {
+        case title, price, pictures
+        
+    }
+    
 }
+

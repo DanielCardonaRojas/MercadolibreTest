@@ -19,7 +19,10 @@ class MercadoLibreModelTests: XCTestCase {
     func testCanParseProductDetails() {
         let parsed = parseFileNamed("product_details.json", as: ProductDetails.self)
         XCTAssert(parsed != nil)
-        XCTAssert(!parsed!.pictures.isEmpty)
+    }
+    func testCanParseProductDescriptions() {
+        let parsed = parseFileNamed("product_descriptions.json", as: [ProductDetails.Description].self)
+        XCTAssert(parsed != nil)
     }
     
     

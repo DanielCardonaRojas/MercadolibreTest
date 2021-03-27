@@ -32,18 +32,27 @@ class MercadoLibreViewModelTests: XCTestCase {
         sut.delegate = mockDelegate
         sut.client.hijacker = MockDataClientHijacker.sharedInstance
     }
-    
+
     func testCallsDelegateWhenSuccessfullyFetchesProductDetails() {
         // Arrange
         let expectation = XCTestExpectation(description: "Call delegate with product")
+        
         mockDelegate.configurationHandler = { product in
-            expectation.fulfill()
+            let isValidProduct = !product.pictures.isEmpty
+            if isValidProduct {
+                expectation.fulfill()
+            }
         }
+        
         MockDataClientHijacker.sharedInstance
          .registerJsonFileContentSubstitute(for: ProductDetails.self,
                                                    requestThatMatches: .any,
                                                    bundle: Bundle(for: Self.self),
                                                    fileName: "product_details.json")
+        MockDataClientHijacker.sharedInstance
+            .registerSubstitute([
+                ProductDetails.Description(plainText: "Test description")
+            ], requestThatMatches: .any)
 
         // Act
         sut.itemId = "1"
