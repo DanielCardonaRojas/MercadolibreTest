@@ -45,11 +45,9 @@ class SearchResultsViewController: UIViewController {
     
     private func setupCollectionView() {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: 300, height: 80)
         flowLayout.sectionInset = UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20)
         collectionView.register(ProductSearchResultCell.self, forCellWithReuseIdentifier: "\(ProductSearchResultCell.self)")
         collectionView.collectionViewLayout = flowLayout
-        collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.prefetchDataSource = self
         collectionView.dataSource = self
@@ -80,15 +78,22 @@ extension SearchResultsViewController: UICollectionViewDataSourcePrefetching {
 }
 
 
+// MARK: -
+extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 70)
+    }
+}
 // MARK: - UICollectionViewDelegate
 extension SearchResultsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
-    
+
 }
 
+// MARK: - UICollectionViewDataSource
 extension SearchResultsViewController: UICollectionViewDataSource {
-    
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }

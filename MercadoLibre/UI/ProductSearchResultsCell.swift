@@ -7,6 +7,7 @@
 
 import UIKit
 import KeypathAutolayout
+import SDWebImage
 
 class ProductSearchResultCell: UICollectionViewCell {
     private var observations = [NSKeyValueObservation]()
@@ -18,8 +19,16 @@ class ProductSearchResultCell: UICollectionViewCell {
         return lbl
     }()
     
+    lazy var imageView: UIImageView = {
+        let img = UIImageView()
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.contentMode = .scaleAspectFit
+        return img
+    }()
+    
     func configure(with result: ProductSearchResult?, index: Int) {
-        titleLabel.text = "\(index)\t"  + (result?.title ?? "")
+        titleLabel.text = "\(index)\t" + (result?.title ?? "")
+        imageView.sd_setImage(with: result.flatMap { URL(string: $0.thumbnail) }, placeholderImage: UIImage(systemName: "camera"))
     }
     
     // MARK: Initializers
@@ -34,9 +43,13 @@ class ProductSearchResultCell: UICollectionViewCell {
     
     private func setupLayout() {
         addSubview(titleLabel)
+        addSubview(imageView)
         
         NSLayoutConstraint.activate {
-            titleLabel.relativeTo(self, positioned: .centered + .equallySized())
+            titleLabel.relativeTo(self, positioned: .top() + .right())
+            imageView.relativeTo(titleLabel, positioned: .toLeft(spacing: 12))
+            imageView.relativeTo(self, positioned: .height() + .left() + .centerY())
+            imageView.constrainedBy(.constantWidth(70))
         }
 
     }
