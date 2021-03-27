@@ -21,6 +21,7 @@
 		C47A5430260E63D30093335D /* MercadoLibreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A542F260E63D30093335D /* MercadoLibreTests.swift */; };
 		C47A544D260E64CE0093335D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A544C260E64CE0093335D /* SearchResult.swift */; };
 		C47A5453260E65400093335D /* meli_search_results.json in Resources */ = {isa = PBXBuildFile; fileRef = C47A5452260E65400093335D /* meli_search_results.json */; };
+		C4CB8682260EBC2C00C2E0B2 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CB8681260EBC2C00C2E0B2 /* Array+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		C47A5431260E63D30093335D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C47A544C260E64CE0093335D /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		C47A5452260E65400093335D /* meli_search_results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meli_search_results.json; sourceTree = "<group>"; };
+		C4CB8681260EBC2C00C2E0B2 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 		C47A545A260E682D0093335D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C4CB8681260EBC2C00C2E0B2 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				C4076924260E76F50005ECCF /* SearchViewModel.swift in Sources */,
 				C41A52AB260E6F9F005FD9C3 /* SearchAPI.swift in Sources */,
 				C47A541D260E63D10093335D /* SearchResultsViewController.swift in Sources */,
+				C4CB8682260EBC2C00C2E0B2 /* Array+Extensions.swift in Sources */,
 				C47A5419260E63D10093335D /* AppDelegate.swift in Sources */,
 				C47A544D260E64CE0093335D /* SearchResult.swift in Sources */,
 				C4076928260E78C70005ECCF /* ProductSearchResultsCell.swift in Sources */,

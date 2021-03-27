@@ -18,8 +18,8 @@ class ProductSearchResultCell: UICollectionViewCell {
         return lbl
     }()
     
-    func configure(with result: ProductSearchResult) {
-        titleLabel.text = result.title
+    func configure(with result: ProductSearchResult?, index: Int) {
+        titleLabel.text = "\(index)\t"  + (result?.title ?? "")
     }
     
     // MARK: Initializers
