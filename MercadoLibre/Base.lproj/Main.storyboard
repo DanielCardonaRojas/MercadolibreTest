@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZL-Kb-XsA" userLabel="ScrollContent">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1209"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1031"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4c-Iu-6qW" userLabel="HeaderContainer">
                                                 <rect key="frame" x="12" y="10" width="390" height="85"/>
@@ -84,20 +84,23 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgp-wW-qPJ" userLabel="CarouselContainer">
                                                 <rect key="frame" x="8" y="107" width="398" height="278"/>
                                                 <subviews>
-                                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BJ-gi-nyF">
+                                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BJ-gi-nyF">
                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="278"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <viewLayoutGuide key="contentLayoutGuide" id="hC1-tV-YlH"/>
                                                         <viewLayoutGuide key="frameLayoutGuide" id="ROm-gl-X9C"/>
                                                     </scrollView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="6BJ-gi-nyF" secondAttribute="bottom" id="2Z5-cL-nuQ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6BJ-gi-nyF" secondAttribute="trailing" id="WLg-zn-LNH"/>
                                                     <constraint firstAttribute="height" constant="278" id="c6X-ii-YMZ"/>
+                                                    <constraint firstItem="6BJ-gi-nyF" firstAttribute="top" secondItem="Qgp-wW-qPJ" secondAttribute="top" id="ff5-7w-uF0"/>
+                                                    <constraint firstItem="6BJ-gi-nyF" firstAttribute="leading" secondItem="Qgp-wW-qPJ" secondAttribute="leading" id="tFY-br-QZL"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLc-B3-g4s" userLabel="ProductInfoContainer">
-                                                <rect key="frame" x="8" y="414" width="398" height="500"/>
+                                                <rect key="frame" x="8" y="414" width="398" height="569"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$18.500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IH9-I3-BsI" userLabel="ProductTitle">
                                                         <rect key="frame" x="8" y="8" width="382" height="31.5"/>
@@ -114,8 +117,13 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o19-JD-2PY">
-                                                        <rect key="frame" x="8" y="93.5" width="382" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o19-JD-2PY">
+                                                        <rect key="frame" x="8" y="93.5" width="382" height="451.5"/>
+                                                        <mutableString key="text">I don’t want to complain. It’s good to see the content layout guides show up in Interface Builder. It’s been two years since they were introduced with iOS 11 but better late than never. To complete the picture I’d like to see Apple also expose the layout margin guide for the scroll view.
+
+Sometimes you want a view that remains fixed in the scroll view frame so that it floats over the scrollable content. For example, the info button in my previous example remains fixed in the top-left corner when the content scrolls The frame layout guide doesn’t help in this case as it extends into the safe area behind the navigation bar. I created constraints in code to fix the button to the layout margins guide of the scroll view: I don’t want to complain. It’s good to see the content layout guides show up in Interface Builder. It’s been two years since they were introduced with iOS 11 but better late than never. To complete the picture I’d like to see Apple also expose the layout margin guide for the scroll view. I don’t want to complain. It’s good to see the content layout guides show up in Interface Builder. It’s been two years since they were introduced with iOS 11 but better late than never. To complete the picture I’d like to see Apple also expose the layout margin guide for the scroll view.
+
+</mutableString>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
@@ -125,11 +133,10 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="dbZ-SD-wWi" secondAttribute="trailing" constant="8" id="3Oo-Ka-PCo"/>
                                                     <constraint firstAttribute="trailing" secondItem="IH9-I3-BsI" secondAttribute="trailing" constant="8" id="CPY-sz-5pm"/>
-                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="o19-JD-2PY" secondAttribute="bottom" constant="10" id="VUV-v7-Qph"/>
                                                     <constraint firstItem="o19-JD-2PY" firstAttribute="leading" secondItem="yLc-B3-g4s" secondAttribute="leading" constant="8" id="XFj-d6-9QI"/>
                                                     <constraint firstItem="dbZ-SD-wWi" firstAttribute="top" secondItem="IH9-I3-BsI" secondAttribute="bottom" constant="20" id="d4u-WE-lFp"/>
                                                     <constraint firstItem="o19-JD-2PY" firstAttribute="centerX" secondItem="yLc-B3-g4s" secondAttribute="centerX" id="dcr-2G-ts0"/>
-                                                    <constraint firstAttribute="height" constant="500" id="k8F-f7-YPH"/>
+                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="o19-JD-2PY" secondAttribute="bottom" constant="24" id="fSS-0K-t2y"/>
                                                     <constraint firstItem="IH9-I3-BsI" firstAttribute="leading" secondItem="yLc-B3-g4s" secondAttribute="leading" constant="8" id="lHF-16-pNB"/>
                                                     <constraint firstItem="o19-JD-2PY" firstAttribute="top" secondItem="dbZ-SD-wWi" secondAttribute="bottom" constant="13" id="p9x-3E-NGL"/>
                                                     <constraint firstItem="IH9-I3-BsI" firstAttribute="top" secondItem="yLc-B3-g4s" secondAttribute="top" constant="8" id="srq-Sl-ryM"/>
@@ -140,7 +147,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Qgp-wW-qPJ" firstAttribute="width" secondItem="SZL-Kb-XsA" secondAttribute="width" multiplier="0.961353" id="DAt-Jc-Nju"/>
-                                            <constraint firstAttribute="bottom" secondItem="yLc-B3-g4s" secondAttribute="bottom" constant="295" id="Fae-cV-Bu2"/>
+                                            <constraint firstAttribute="bottom" secondItem="yLc-B3-g4s" secondAttribute="bottom" constant="48" id="Fae-cV-Bu2"/>
                                             <constraint firstItem="s4c-Iu-6qW" firstAttribute="top" secondItem="SZL-Kb-XsA" secondAttribute="top" constant="10" id="Jl9-10-nUm"/>
                                             <constraint firstItem="yLc-B3-g4s" firstAttribute="centerX" secondItem="SZL-Kb-XsA" secondAttribute="centerX" id="KQL-zy-6S5"/>
                                             <constraint firstItem="s4c-Iu-6qW" firstAttribute="width" secondItem="SZL-Kb-XsA" secondAttribute="width" constant="-24" id="OcY-xf-ROi"/>
@@ -166,6 +173,7 @@
                         <viewLayoutGuide key="safeArea" id="hls-zs-Di7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="yLc-B3-g4s" firstAttribute="height" secondItem="Xcb-nn-9zc" secondAttribute="height" multiplier="0.5" priority="250" id="4fT-sz-5yQ"/>
                             <constraint firstItem="SZL-Kb-XsA" firstAttribute="width" secondItem="Xcb-nn-9zc" secondAttribute="width" id="72e-wN-GEZ"/>
                             <constraint firstItem="9As-h9-FR0" firstAttribute="top" secondItem="hls-zs-Di7" secondAttribute="top" id="8K7-yZ-dr0"/>
                             <constraint firstItem="hls-zs-Di7" firstAttribute="bottom" secondItem="9As-h9-FR0" secondAttribute="bottom" id="MXk-Da-dfi"/>

@@ -9,9 +9,10 @@ import UIKit
 import Combine
 
 class SearchResultsViewController: UIViewController {
+    @IBOutlet var collectionView: UICollectionView!
 
     enum Status {
-        case loadedContent, loading, empty, iddle
+        case loadedContent, loading, empty, iddle, typingSearch
     }
 
     lazy var viewModel: ProductSearchViewModel = {
@@ -27,6 +28,19 @@ class SearchResultsViewController: UIViewController {
     }
 
     lazy var loadingController = LoadingViewController()
+    lazy var suggestionsController: SuggestionsViewController = {
+        let vc = SuggestionsViewController()
+        vc.onSuggestionSelected = self.onSuggestionSelected
+        return vc
+    }()
+
+    lazy var searchController: UISearchController = {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchBar.searchBarStyle = .prominent
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.delegate = self
+        return search
+    }()
 
     lazy var emptyStateView: UIView = {
         let nib = UINib(nibName: "EmptySearchResultsView", bundle: nil)
@@ -37,18 +51,12 @@ class SearchResultsViewController: UIViewController {
 
     private var isGrid: Bool = false
 
-    @IBOutlet var collectionView: UICollectionView!
-
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
 
-        let search = UISearchController(searchResultsController: nil)
-        search.searchBar.searchBarStyle = .prominent
-        search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.delegate = self
-        self.navigationItem.searchController = search
+        self.navigationItem.searchController = searchController
         (UIApplication.shared.delegate as? AppDelegate)?.setStatusBar()
 
         view.addSubview(emptyStateView)
@@ -67,12 +75,11 @@ class SearchResultsViewController: UIViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.setStatusBar()
     }
 
-    // MARK: - Helpers
-
     private func renderStatus(_ status: Status) {
         switch status {
         case .loading:
             showSpinner()
+            hideSuggestions()
         case .loadedContent:
             hideSpinner()
             collectionView.isHidden = false
@@ -82,8 +89,65 @@ class SearchResultsViewController: UIViewController {
             collectionView.isHidden = true
             showEmptyState()
         case .iddle:
-            break
+            hideSpinner()
+            hideEmptyState()
+            hideSuggestions()
+            collectionView.isHidden = false
+        case .typingSearch:
+            hideSpinner()
+            collectionView.isHidden = true
+            hideEmptyState()
+            showSuggestions()
+
         }
+    }
+
+    // MARK: - Actions
+
+    private func onSuggestionSelected(_ suggestion: Suggestion) {
+        search(suggestion.suggestedQuery)
+        searchController.searchBar.endEditing(true)
+
+    }
+
+    // MARK: - Configurations
+
+    private func setupCollectionView() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: 24, left: 12, bottom: 0, right: 12)
+        collectionView.register(ProductSearchResultCell.self, forCellWithReuseIdentifier: "\(ProductSearchResultCell.self)")
+        collectionView.collectionViewLayout = flowLayout
+        collectionView.delegate = self
+        collectionView.prefetchDataSource = self
+        collectionView.dataSource = self
+        collectionView.showsVerticalScrollIndicator = false
+
+    }
+
+    // MARK: - Helpers
+    private func search(_ string: String) {
+        renderStatus(.loading)
+        viewModel.search(string, completion: { newItems in
+            self.renderStatus(newItems.isEmpty ? .empty : .loadedContent)
+            self.collectionView.setContentOffset(.zero, animated: true)
+            self.collectionView.reloadData()
+            self.collectionView.backgroundView = nil
+        })
+
+    }
+
+    private func showSuggestions() {
+        addChild(suggestionsController)
+        suggestionsController.view.frame = view.frame
+        view.addSubview(suggestionsController.view)
+        view.bringSubviewToFront(suggestionsController.view)
+        suggestionsController.didMove(toParent: self)
+    }
+
+    private func hideSuggestions() {
+        suggestionsController.willMove(toParent: nil)
+        suggestionsController.view.removeFromSuperview()
+        suggestionsController.removeFromParent()
     }
 
     private func showSpinner() {
@@ -124,20 +188,6 @@ class SearchResultsViewController: UIViewController {
         return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
     }
 
-    // MARK: - Configurations
-
-    private func setupCollectionView() {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: 24, left: 12, bottom: 0, right: 12)
-        collectionView.register(ProductSearchResultCell.self, forCellWithReuseIdentifier: "\(ProductSearchResultCell.self)")
-        collectionView.collectionViewLayout = flowLayout
-        collectionView.delegate = self
-        collectionView.prefetchDataSource = self
-        collectionView.dataSource = self
-        collectionView.showsVerticalScrollIndicator = false
-
-    }
-
 }
 
 // MARK: - UICollectionViewDataSourcePrefetching
@@ -173,13 +223,21 @@ extension SearchResultsViewController: UISearchBarDelegate {
         guard let queryString = searchBar.text else {
             return
         }
-        renderStatus(.loading)
-        viewModel.search(queryString, completion: { newItems in
-            self.renderStatus(newItems.isEmpty ? .empty : .loadedContent)
-            self.collectionView.setContentOffset(.zero, animated: true)
-            self.collectionView.reloadData()
-            self.collectionView.backgroundView = nil
-        })
+
+        search(queryString)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        renderStatus(.iddle)
+    }
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        renderStatus(.typingSearch)
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        suggestionsController.viewModel.query = searchText
+        suggestionsController.viewModel.getSuggestions()
     }
 
 }

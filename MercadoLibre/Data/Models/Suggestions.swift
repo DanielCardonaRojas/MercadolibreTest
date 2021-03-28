@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Suggestion: Decodable {
+struct Suggestion: Decodable, Hashable {
     let suggestedQuery: String
 
     enum CodingKeys: String, CodingKey {

@@ -4,6 +4,12 @@ A simple app, searching and displaying a product list, and detail screen.
 
 This app consumes the search and items API from: https://api.mercadolibre.com
 
+# Features
+
+- Shows paginates search results, landscape (2 items per row) and portrait
+- Shows suggestion while typing
+- Shows product detail information
+
 # About this project
 
 **Arquitecture**

@@ -16,6 +16,7 @@ protocol SuggestionsViewModelDelegate: class {
 class SuggestionsViewModel {
     lazy var client = APIClient(baseURL: URL(string: MercadoLibreAPI.staticContentUrl)!)
     private var disposables = Set<AnyCancellable>()
+    private (set) var suggestions: [Suggestion] = []
 
     weak var delegate: SuggestionsViewModelDelegate?
 
@@ -33,6 +34,7 @@ class SuggestionsViewModel {
             .sink(receiveCompletion: { _ in
         }, receiveValue: { result in
             self.delegate?.didFetchSuggestions(result.suggestedQueries)
+            self.suggestions = result.suggestedQueries
         }).store(in: &disposables)
 
     }
