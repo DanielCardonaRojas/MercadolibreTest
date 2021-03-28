@@ -46,7 +46,6 @@ class ProductSearchViewModelTests: XCTestCase {
             SearchResults(siteId: "MCO",
                           paging: PagingParams(total: 1000, offset: 0, limit: 50), results: []),
             requestThatMatches: .any)
-        
 
         // Act
         sut.search("keyboards", completion: { _ in })
@@ -56,21 +55,21 @@ class ProductSearchViewModelTests: XCTestCase {
         wait(for: [callsDelegate], timeout: 2.0)
 
     }
-    
+
     func testCallsCompletionWithNewItems() {
         let callsCompletionWithNewItems = XCTestExpectation()
-        
+
         mockData.registerJsonFileContentSubstitute(for: SearchResults.self,
                                                    requestThatMatches: .any,
                                                    bundle: Bundle(for: Self.self),
                                                    fileName: "meli_search_results.json")
-        
+
         sut.search("keyboards", completion: { newItems in
             if newItems.count == 50 {
                 callsCompletionWithNewItems.fulfill()
             }
         })
-        
+
         wait(for: [callsCompletionWithNewItems], timeout: 3.0)
     }
 

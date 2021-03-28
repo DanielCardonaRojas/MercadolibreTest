@@ -13,3 +13,8 @@ extension UIColor {
     static let defaultTextColor = UIColor(named: "textColorMain")!
 
 }
+
+extension UIImage {
+    static let mercadolibreLogoGrey = UIImage(named: "mercadolibre_logo_grey")
+
+}

@@ -40,7 +40,7 @@ class ProductSearchResultCell: UICollectionViewCell {
     func configure(with result: ProductSearchResult?, index: Int) {
         titleLabel.text = result?.title ?? ""
         priceLabel.text = result.map { $0.price.currencyFormatted() }
-        imageView.sd_setImage(with: result.flatMap { URL(string: $0.thumbnail) }, placeholderImage: UIImage(named: "mercadolibre_logo_grey"))
+        imageView.sd_setImage(with: result.flatMap { URL(string: $0.thumbnail) }, placeholderImage: UIImage.mercadolibreLogoGrey)
     }
 
     // MARK: Initializers

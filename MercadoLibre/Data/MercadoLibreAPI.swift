@@ -10,6 +10,7 @@ import APIClient
 
 enum MercadoLibreAPI {
     static let baseUrl = "https://api.mercadolibre.com"
+    static let staticContentUrl = "https://http2.mlstatic.com"
 
     enum Search {
         static func find(query: String, offset: Int, limit: Int) -> Endpoint<SearchResults> {
@@ -30,5 +31,16 @@ enum MercadoLibreAPI {
         static func getDescriptions(_ id: String) -> Endpoint<[ProductDetails.Description]> {
             Endpoint(method: .get, path: "/items/\(id)/descriptions")
         }
+    }
+
+    enum Suggestions {
+        static func forQuery(_ search: String) -> Endpoint<SearchSuggestions> {
+            Endpoint(method: .get, path: "/resources/sites/MCO/autosuggest") {
+                $0.addQuery("q", value: search)
+                    .addQuery("limit", value: "6")
+                    .addQuery("api_version", value: "2")
+            }
+        }
+
     }
 }

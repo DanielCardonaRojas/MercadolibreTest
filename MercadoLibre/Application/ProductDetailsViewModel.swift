@@ -32,6 +32,7 @@ class ProductDetailsViewModel {
         guard let productId = itemId else {
             return
         }
+
         let endpoint = MercadoLibreAPI.Products.getById(productId)
         let descriptionsEndpoint = MercadoLibreAPI.Products.getDescriptions(productId)
 

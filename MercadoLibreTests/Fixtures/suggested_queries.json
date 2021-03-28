@@ -1,0 +1,41 @@
+{
+    "q": "key",
+    "suggested_queries": [
+        {
+            "q": "keycaps",
+            "match_start": 0,
+            "match_end": 3,
+            "filters": []
+        },
+        {
+            "q": "mini keyboard",
+            "match_start": 5,
+            "match_end": 8,
+            "filters": []
+        },
+        {
+            "q": "chroma key",
+            "match_start": 7,
+            "match_end": 10,
+            "filters": []
+        },
+        {
+            "q": "steam key",
+            "match_start": 6,
+            "match_end": 9,
+            "filters": []
+        },
+        {
+            "q": "croma key",
+            "match_start": 6,
+            "match_end": 9,
+            "filters": []
+        },
+        {
+            "q": "blackberry keyone",
+            "match_start": 11,
+            "match_end": 14,
+            "filters": []
+        }
+    ]
+}

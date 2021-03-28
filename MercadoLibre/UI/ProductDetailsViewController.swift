@@ -42,10 +42,8 @@ class ProductDetailsViewController: UIViewController {
     private func setupSubviews() {
         carouselContainer.layer.cornerRadius = 10
         carouselContainer.clipsToBounds = true
-
-        carouselContainer.backgroundColor = UIColor(named: "lightBackground")
         carouselScrollView.auk.settings.contentMode = .scaleAspectFit
-        carouselScrollView.auk.settings.placeholderImage = UIImage(named: "mercadolibre_logo_grey")
+        carouselScrollView.auk.settings.placeholderImage = UIImage.mercadolibreLogoGrey
     }
 }
 
