@@ -9,14 +9,14 @@ import Foundation
 import Combine
 import APIClient
 
-protocol SearchViewModelDelegate: class {
+protocol ProductSearchViewModelDelegate: class {
     func didNotFindResults(for query: String)
 }
 
 class ProductSearchViewModel {
     lazy var client = APIClient(baseURL: URL(string: MercadoLibreAPI.baseUrl)!)
 
-    weak var delegate: SearchViewModelDelegate?
+    weak var delegate: ProductSearchViewModelDelegate?
 
     var isLoading: Bool = false
     let pageSize = 30

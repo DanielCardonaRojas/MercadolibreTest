@@ -28,7 +28,7 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>http2.mlstatic.com</key>
+			<key>mlstatic.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>

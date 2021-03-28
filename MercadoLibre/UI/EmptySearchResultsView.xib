@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No encontramos publicaciones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAS-Ah-mev">
+                    <rect key="frame" x="71.5" y="251" width="271" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Revisa que la palabra este bien escrita. Tambien pudes probar con menos terminos o mas generales" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raE-gC-R9D">
+                    <rect key="frame" x="12" y="287" width="390" height="61"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="tertiaryLabelColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cBa-fE-oER">
+                    <rect key="frame" x="142" y="104.5" width="130" height="114"/>
+                    <color key="tintColor" red="0.49803921569999998" green="0.49019607840000001" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="cBa-fE-oER" secondAttribute="height" multiplier="26:23" id="EL1-Pi-CPd"/>
+                        <constraint firstAttribute="height" constant="115" id="YQ0-kE-ZUN"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemGray5Color"/>
+            <constraints>
+                <constraint firstItem="cBa-fE-oER" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="AU1-wh-de0"/>
+                <constraint firstItem="cBa-fE-oER" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="60" id="DWG-Em-jMc"/>
+                <constraint firstItem="ZAS-Ah-mev" firstAttribute="centerX" secondItem="cBa-fE-oER" secondAttribute="centerX" id="HPh-N7-pUK"/>
+                <constraint firstItem="raE-gC-R9D" firstAttribute="centerX" secondItem="ZAS-Ah-mev" secondAttribute="centerX" id="V05-n1-b6b"/>
+                <constraint firstItem="ZAS-Ah-mev" firstAttribute="top" secondItem="cBa-fE-oER" secondAttribute="bottom" constant="32" id="gcJ-X6-iO5"/>
+                <constraint firstItem="raE-gC-R9D" firstAttribute="top" secondItem="ZAS-Ah-mev" secondAttribute="bottom" constant="12" id="gv7-mP-H35"/>
+                <constraint firstItem="raE-gC-R9D" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" constant="-24" id="liI-WH-1Up"/>
+            </constraints>
+            <point key="canvasLocation" x="140.57971014492756" y="83.705357142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -9,11 +9,33 @@ import UIKit
 import Combine
 
 class SearchResultsViewController: UIViewController {
-    lazy var viewModel: SearchViewModel = {
-        let vm = SearchViewModel()
+
+    enum Status {
+        case loadedContent, loading, empty, iddle
+    }
+
+    lazy var viewModel: ProductSearchViewModel = {
+        let vm = ProductSearchViewModel()
         vm.delegate = self
         return vm
     }()
+
+    private var status: Status = .iddle {
+        didSet {
+            renderStatus(status)
+        }
+    }
+
+    lazy var loadingController = LoadingViewController()
+
+    lazy var emptyStateView: UIView = {
+        let nib = UINib(nibName: "EmptySearchResultsView", bundle: nil)
+        let backgroundView = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        return backgroundView
+    }()
+
+    private var isGrid: Bool = false
 
     @IBOutlet var collectionView: UICollectionView!
 
@@ -29,17 +51,42 @@ class SearchResultsViewController: UIViewController {
         self.navigationItem.searchController = search
         (UIApplication.shared.delegate as? AppDelegate)?.setStatusBar()
 
+        view.addSubview(emptyStateView)
+        NSLayoutConstraint.activate {
+            emptyStateView.relativeTo(view, positioned: .inset(by: 0))
+        }
+        emptyStateView.isHidden = true
+
     }
 
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         print("Will transition to \(newCollection)")
+        isGrid = UIDevice.current.orientation.isLandscape
+        collectionView.collectionViewLayout.invalidateLayout()
+        view.setNeedsLayout()
         (UIApplication.shared.delegate as? AppDelegate)?.setStatusBar()
     }
 
     // MARK: - Helpers
-    let loadingController = LoadingViewController()
 
-    func showSpinner() {
+    private func renderStatus(_ status: Status) {
+        switch status {
+        case .loading:
+            showSpinner()
+        case .loadedContent:
+            hideSpinner()
+            collectionView.isHidden = false
+            hideEmptyState()
+        case .empty:
+            hideSpinner()
+            collectionView.isHidden = true
+            showEmptyState()
+        case .iddle:
+            break
+        }
+    }
+
+    private func showSpinner() {
         addChild(loadingController)
         loadingController.view.frame = view.frame
         view.addSubview(loadingController.view)
@@ -47,17 +94,25 @@ class SearchResultsViewController: UIViewController {
         loadingController.didMove(toParent: self)
     }
 
-    func hideSpinner() {
+    private func hideSpinner() {
         loadingController.willMove(toParent: nil)
         loadingController.view.removeFromSuperview()
         loadingController.removeFromParent()
     }
 
-    func isIndexPathRequiringFetch(_ indexPath: IndexPath) -> Bool {
+    private func showEmptyState() {
+        emptyStateView.isHidden = false
+    }
+
+    private func hideEmptyState() {
+        emptyStateView.isHidden = true
+    }
+
+    private func isIndexPathRequiringFetch(_ indexPath: IndexPath) -> Bool {
         return indexPath.row >= viewModel.products.count
     }
 
-    func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
+    private func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
       let indexPathsForVisibleItems = collectionView.indexPathsForVisibleItems
       let indexPathsIntersection = Set(indexPathsForVisibleItems).intersection(indexPaths)
       return Array(indexPathsIntersection)
@@ -73,12 +128,14 @@ class SearchResultsViewController: UIViewController {
 
     private func setupCollectionView() {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20)
+        flowLayout.sectionInset = UIEdgeInsets(top: 24, left: 12, bottom: 0, right: 12)
         collectionView.register(ProductSearchResultCell.self, forCellWithReuseIdentifier: "\(ProductSearchResultCell.self)")
         collectionView.collectionViewLayout = flowLayout
         collectionView.delegate = self
         collectionView.prefetchDataSource = self
         collectionView.dataSource = self
+        collectionView.showsVerticalScrollIndicator = false
+
     }
 
 }
@@ -103,18 +160,37 @@ extension SearchResultsViewController: UICollectionViewDataSourcePrefetching {
 }
 
 // MARK: SearchViewModelDelegate
-extension SearchResultsViewController: SearchViewModelDelegate {
+extension SearchResultsViewController: ProductSearchViewModelDelegate {
     func didNotFindResults(for query: String) {
-        hideSpinner()
-        ToastManager.sharedInstance.queue(toast: "No se encontraron resultados")
+        renderStatus(.empty)
     }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension SearchResultsViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let queryString = searchBar.text else {
+            return
+        }
+        renderStatus(.loading)
+        viewModel.search(queryString, completion: { newItems in
+            self.renderStatus(newItems.isEmpty ? .empty : .loadedContent)
+            self.collectionView.setContentOffset(.zero, animated: true)
+            self.collectionView.reloadData()
+            self.collectionView.backgroundView = nil
+        })
+    }
+
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 70)
+        let itemsPerRow: CGFloat = isGrid ? 2 : 1
+        return CGSize(width: collectionView.frame.width / itemsPerRow - 30, height: 70)
     }
+
 }
 // MARK: - UICollectionViewDelegate
 extension SearchResultsViewController: UICollectionViewDelegate {
@@ -153,21 +229,4 @@ extension SearchResultsViewController: UICollectionViewDataSource {
 
         return cell
     }
-}
-
-// MARK: - UISearchBarDelegate
-
-extension SearchResultsViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let queryString = searchBar.text else {
-            return
-        }
-        showSpinner()
-        viewModel.search(queryString, completion: {
-            self.hideSpinner()
-            self.collectionView.setContentOffset(.zero, animated: true)
-            self.collectionView.reloadData()
-        })
-    }
-
 }

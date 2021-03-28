@@ -10,7 +10,7 @@ import Foundation
 extension Double {
     func currencyFormatted() -> String {
         let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "CO")
+        formatter.locale = Locale.current
         formatter.numberStyle = .currency
         return formatter.string(from: self as NSNumber)!
     }

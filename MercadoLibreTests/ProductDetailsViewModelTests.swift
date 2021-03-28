@@ -22,15 +22,17 @@ class ProductDetailsDelegateSpy: ProductDetailsViewModelDelegate {
     }
 }
 
-class MercadoLibreViewModelTests: XCTestCase {
+class ProductDetailsViewModelTests: XCTestCase {
     var sut: ProductDetailsViewModel! // System under test
     weak var mockDelegate: ProductDetailsDelegateSpy!
+    var mockData: MockDataClientHijacker!
 
     override func setUp() {
         sut = ProductDetailsViewModel()
         mockDelegate = ProductDetailsDelegateSpy()
         sut.delegate = mockDelegate
-        sut.client.hijacker = MockDataClientHijacker.sharedInstance
+        mockData = MockDataClientHijacker()
+        sut.client.hijacker = mockData
     }
 
     func testCallsDelegateWhenSuccessfullyFetchesProductDetails() {
@@ -44,12 +46,12 @@ class MercadoLibreViewModelTests: XCTestCase {
             }
         }
 
-        MockDataClientHijacker.sharedInstance
+        mockData
          .registerJsonFileContentSubstitute(for: ProductDetails.self,
                                                    requestThatMatches: .any,
                                                    bundle: Bundle(for: Self.self),
                                                    fileName: "product_details.json")
-        MockDataClientHijacker.sharedInstance
+        mockData
             .registerSubstitute([
                 ProductDetails.Description(plainText: "Test description")
             ], requestThatMatches: .any)

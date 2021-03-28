@@ -13,17 +13,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setTheme() {
         let navigationProxy = UINavigationBar.appearance()
         navigationProxy.backgroundColor = .mercadolibreYellow
+        navigationProxy.barTintColor = .mercadolibreYellow
+        navigationProxy.tintColor = .darkText
         UILabel.appearance().textColor = .defaultTextColor
 
     }
 
+    private lazy var statusBar: UIView = UIView()
+
     func setStatusBar() {
         let window = UIApplication.shared.windows.first!
         let statusBarFrame = window.windowScene?.statusBarManager?.statusBarFrame
+        statusBar.removeFromSuperview()
+
         if let frame = statusBarFrame {
-            let statusBar = UIView(frame: statusBarFrame!)
-            statusBar.backgroundColor = .mercadolibreYellow
+            statusBar.translatesAutoresizingMaskIntoConstraints = false
+            statusBar.backgroundColor = UIDevice.current.orientation.isLandscape ? .clear : .mercadolibreYellow
+            statusBar.isHidden = UIDevice.current.orientation.isLandscape
             window.addSubview(statusBar)
+            NSLayoutConstraint.activate {
+                statusBar.relativeTo(window, positioned: .top() + .centerX() + .width())
+                statusBar.constrainedBy(.constantHeight(frame.height))
+            }
+
         }
     }
 
