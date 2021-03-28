@@ -15,7 +15,7 @@ class MercadoLibreModelTests: XCTestCase {
         XCTAssert(parsed != nil)
         XCTAssert(!parsed!.results.isEmpty)
     }
-    
+
     func testCanParseProductDetails() {
         let parsed = parseFileNamed("product_details.json", as: ProductDetails.self)
         XCTAssert(parsed != nil)
@@ -24,20 +24,19 @@ class MercadoLibreModelTests: XCTestCase {
         let parsed = parseFileNamed("product_descriptions.json", as: [ProductDetails.Description].self)
         XCTAssert(parsed != nil)
     }
-    
-    
+
     func parseFileNamed<T: Decodable>(_ fileName: String, as type: T.Type) -> T? {
            let fileBundle = Bundle(for: MercadoLibreModelTests.self)
-        
+
            guard let url = fileBundle.resourceURL?.appendingPathComponent(fileName) else {
                return nil
            }
-           
+
            do {
                let data = try Data(contentsOf: URL(fileURLWithPath: url.path))
                let parsed = try JSONDecoder().decode(T.self, from: data)
                return parsed
-           } catch (let error) {
+           } catch let error {
                print(error)
                return nil
            }

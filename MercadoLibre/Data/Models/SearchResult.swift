@@ -14,12 +14,12 @@ struct ProductSearchResult: Decodable, Hashable {
     let thumbnail: String
 }
 
-//meli_search_results.json
+// meli_search_results.json
 struct SearchResults: Decodable {
     let siteId: String
     let paging: PagingParams
     let results: [ProductSearchResult]
-    
+
     enum CodingKeys: String, CodingKey {
         case siteId = "site_id"
         case paging = "paging"
@@ -32,5 +32,5 @@ struct PagingParams: Decodable {
     let total: Int
     let offset: Int
     let limit: Int
-    
+
 }

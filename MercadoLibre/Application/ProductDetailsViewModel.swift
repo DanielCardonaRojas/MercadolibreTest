@@ -19,14 +19,13 @@ extension ProductDetailsViewModelDelegate {
 }
 
 class ProductDetailsViewModel {
-    
+
     lazy var client = APIClient(baseURL: URL(string: MercadoLibreAPI.baseUrl)!)
     private var disposables = Set<AnyCancellable>()
     weak var delegate: ProductDetailsViewModelDelegate?
-    
+
     var itemId: String?
-    
-    
+
     // MARK: Bindable properties
 
     func fetchItem() {
@@ -35,7 +34,7 @@ class ProductDetailsViewModel {
         }
         let endpoint = MercadoLibreAPI.Products.getById(productId)
         let descriptionsEndpoint = MercadoLibreAPI.Products.getDescriptions(productId)
-        
+
         APIClientPublisher(client: client, endpoint: endpoint)
             .chain({ (productDetail: ProductDetails) -> Endpoint<ProductDetails> in
                 return descriptionsEndpoint.map({ descriptions in
@@ -50,11 +49,11 @@ class ProductDetailsViewModel {
                 if case .failure(let error) = complete {
                     self.delegate?.handleFetchError(error)
                 }
-                
+
             }, receiveValue: { product in
                 self.delegate?.configure(with: product)
-                
+
             }).store(in: &disposables)
     }
-    
+
 }

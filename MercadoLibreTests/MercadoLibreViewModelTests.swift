@@ -12,11 +12,11 @@ import APIClient
 class ProductDetailsDelegateSpy: ProductDetailsViewModelDelegate {
     var configurationHandler: ((ProductDetails) -> Void)?
     var errorHandler: ((Error) -> Void)?
-    
+
     func configure(with product: ProductDetails) {
         configurationHandler?(product)
     }
-    
+
     func handleFetchError(_ error: Error) {
         errorHandler?(error)
     }
@@ -24,7 +24,7 @@ class ProductDetailsDelegateSpy: ProductDetailsViewModelDelegate {
 
 class MercadoLibreViewModelTests: XCTestCase {
     var sut: ProductDetailsViewModel! // System under test
-    var mockDelegate: ProductDetailsDelegateSpy!
+    weak var mockDelegate: ProductDetailsDelegateSpy!
 
     override func setUp() {
         sut = ProductDetailsViewModel()
@@ -36,14 +36,14 @@ class MercadoLibreViewModelTests: XCTestCase {
     func testCallsDelegateWhenSuccessfullyFetchesProductDetails() {
         // Arrange
         let expectation = XCTestExpectation(description: "Call delegate with product")
-        
+
         mockDelegate.configurationHandler = { product in
             let isValidProduct = !product.pictures.isEmpty
             if isValidProduct {
                 expectation.fulfill()
             }
         }
-        
+
         MockDataClientHijacker.sharedInstance
          .registerJsonFileContentSubstitute(for: ProductDetails.self,
                                                    requestThatMatches: .any,
@@ -59,26 +59,26 @@ class MercadoLibreViewModelTests: XCTestCase {
         sut.fetchItem()
 
         // Assert
-        
+
         wait(for: [expectation], timeout: 3.0)
 
     }
-    
+
     func testCallsDelegateWithErrorWhenFetchingProductDetailsFails() {
         // Arrange
         let expectationDoesNotCallSuccess = XCTestExpectation(description: "Does not call delegate with product")
         expectationDoesNotCallSuccess.isInverted = true
-        
+
         let expectation = XCTestExpectation(description: "Calls delegate with error")
-        
-        mockDelegate.configurationHandler = { product in
+
+        mockDelegate.configurationHandler = { _ in
             expectationDoesNotCallSuccess.fulfill()
         }
-        
-        mockDelegate.errorHandler = { error in
+
+        mockDelegate.errorHandler = { _ in
             expectation.fulfill()
         }
-        
+
         MockDataClientHijacker.sharedInstance.registerError("This item does not exist", for: ProductDetails.self, requestThatMatches: .any)
 
         // Act

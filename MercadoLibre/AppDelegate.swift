@@ -10,10 +10,26 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    private func setTheme() {
+        let navigationProxy = UINavigationBar.appearance()
+        navigationProxy.backgroundColor = .mercadolibreYellow
+        UILabel.appearance().textColor = .defaultTextColor
 
+    }
+
+    func setStatusBar() {
+        let window = UIApplication.shared.windows.first!
+        let statusBarFrame = window.windowScene?.statusBarManager?.statusBarFrame
+        if let frame = statusBarFrame {
+            let statusBar = UIView(frame: statusBarFrame!)
+            statusBar.backgroundColor = .mercadolibreYellow
+            window.addSubview(statusBar)
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setTheme()
         return true
     }
 
@@ -31,6 +47,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
 }
-

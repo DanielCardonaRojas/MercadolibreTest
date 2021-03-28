@@ -11,7 +11,7 @@ struct ImageCarousel: View {
     private var numberOfImages = 3
 
     @State private var currentGalleryIndex = 0
-    
+
     var body: some View {
         TabView {
             ForEach(0..<numberOfImages) { num in
@@ -20,7 +20,7 @@ struct ImageCarousel: View {
                     .scaledToFill()
                     .overlay(Color.black.opacity(0.3))
                     .tag(num)
-                
+
             }
         }
         .tabViewStyle(PageTabViewStyle())

@@ -9,20 +9,21 @@ import SwiftUI
 import UIKit
 import Auk
 
-
 class ProductDetailsViewController: UIViewController {
-    
+
     lazy var viewModel: ProductDetailsViewModel = {
         let vm = ProductDetailsViewModel()
         vm.delegate = self
         return vm
-        
+
     }()
 
+    @IBOutlet var carouselContainer: UIView!
     @IBOutlet var carouselScrollView: UIScrollView!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
-    
+    @IBOutlet var priceLabel: UILabel!
+
     var itemId: String? {
         didSet {
             if let productId = itemId {
@@ -30,11 +31,21 @@ class ProductDetailsViewController: UIViewController {
                 viewModel.fetchItem()
             }
         }
-        
+
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSubviews()
+    }
+
+    private func setupSubviews() {
+        carouselContainer.layer.cornerRadius = 10
+        carouselContainer.clipsToBounds = true
+
+        carouselContainer.backgroundColor = UIColor(named: "lightBackground")
+        carouselScrollView.auk.settings.contentMode = .scaleAspectFit
+        carouselScrollView.auk.settings.placeholderImage = UIImage(named: "mercadolibre_logo_grey")
     }
 }
 
@@ -45,39 +56,10 @@ extension ProductDetailsViewController: ProductDetailsViewModelDelegate {
                 carouselScrollView.auk.show(url: picture.url)
             })
         }
-        
+
         titleLabel.text = product.title
         descriptionLabel.text = product.descriptions?.first?.plainText
+        priceLabel.text = product.price.currencyFormatted()
     }
-    
-}
 
-extension UIViewController {
-    func embedIn<V: UIViewController, C: UIView>(_ vc: V, container: KeyPath<V, C>) {
-        vc.addChild(self)
-        let containerView = vc[keyPath: container]
-        containerView.addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            view.widthAnchor.constraint(equalTo: vc.view.widthAnchor),
-            view.heightAnchor.constraint(equalTo: vc.view.heightAnchor),
-            view.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor),
-            view.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor),
-        ])
-        
-        didMove(toParent: vc)
-        
-    }
-    func remove() {
-        // Just to be safe, we check that this view controller
-        // is actually added to a parent before removing it.
-        guard parent != nil else {
-            return
-        }
-
-        willMove(toParent: nil)
-        view.removeFromSuperview()
-        removeFromParent()
-    }
 }

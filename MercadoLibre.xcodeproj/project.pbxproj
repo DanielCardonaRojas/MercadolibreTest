@@ -20,8 +20,13 @@
 		C43231D2260F847200733E1A /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43231D1260F847200733E1A /* ProductDetailsViewController.swift */; };
 		C43231D6260F860F00733E1A /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43231D5260F860F00733E1A /* UIStoryboard+Extensions.swift */; };
 		C43231DC260F8B8700733E1A /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43231DB260F8B8700733E1A /* ProductDetailsView.swift */; };
+		C46E3B662610B44F00C89E8B /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E3B652610B44F00C89E8B /* LoadingViewController.swift */; };
 		C4793821260FB28900BE5187 /* Auk in Frameworks */ = {isa = PBXBuildFile; productRef = C4793820260FB28900BE5187 /* Auk */; };
 		C4793827260FCA4900BE5187 /* product_descriptions.json in Resources */ = {isa = PBXBuildFile; fileRef = C4793826260FCA4900BE5187 /* product_descriptions.json */; };
+		C4793831260FE94F00BE5187 /* Numeric+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4793830260FE94F00BE5187 /* Numeric+Extensions.swift */; };
+		C4793835260FEB9600BE5187 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4793834260FEB9600BE5187 /* Constants.swift */; };
+		C479383B260FF98200BE5187 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C479383A260FF98200BE5187 /* ToastManager.swift */; };
+		C4793847260FFC3D00BE5187 /* ToastMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4793846260FFC3D00BE5187 /* ToastMessageView.swift */; };
 		C47A5419260E63D10093335D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A5418260E63D10093335D /* AppDelegate.swift */; };
 		C47A541B260E63D10093335D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A541A260E63D10093335D /* SceneDelegate.swift */; };
 		C47A541D260E63D10093335D /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A541C260E63D10093335D /* SearchResultsViewController.swift */; };
@@ -55,7 +60,12 @@
 		C43231D1260F847200733E1A /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		C43231D5260F860F00733E1A /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		C43231DB260F8B8700733E1A /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		C46E3B652610B44F00C89E8B /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		C4793826260FCA4900BE5187 /* product_descriptions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = product_descriptions.json; sourceTree = "<group>"; };
+		C4793830260FE94F00BE5187 /* Numeric+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+Extensions.swift"; sourceTree = "<group>"; };
+		C4793834260FEB9600BE5187 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C479383A260FF98200BE5187 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
+		C4793846260FFC3D00BE5187 /* ToastMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessageView.swift; sourceTree = "<group>"; };
 		C47A5415260E63D10093335D /* MercadoLibre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MercadoLibre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47A5418260E63D10093335D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C47A541A260E63D10093335D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +111,8 @@
 				C43231D1260F847200733E1A /* ProductDetailsViewController.swift */,
 				C4076927260E78C70005ECCF /* ProductSearchResultsCell.swift */,
 				C43231DB260F8B8700733E1A /* ProductDetailsView.swift */,
+				C4793846260FFC3D00BE5187 /* ToastMessageView.swift */,
+				C46E3B652610B44F00C89E8B /* LoadingViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -127,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				C47A545A260E682D0093335D /* Extensions */,
+				C4793834260FEB9600BE5187 /* Constants.swift */,
+				C479383A260FF98200BE5187 /* ToastManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -201,6 +215,7 @@
 			children = (
 				C4CB8681260EBC2C00C2E0B2 /* Array+Extensions.swift */,
 				C43231D5260F860F00733E1A /* UIStoryboard+Extensions.swift */,
+				C4793830260FE94F00BE5187 /* Numeric+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,6 +230,7 @@
 				C47A5411260E63D10093335D /* Sources */,
 				C47A5412260E63D10093335D /* Frameworks */,
 				C47A5413260E63D10093335D /* Resources */,
+				C46E3B692610BEA100C89E8B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -315,6 +331,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C46E3B692610BEA100C89E8B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C47A5411260E63D10093335D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -323,16 +359,21 @@
 				C4076924260E76F50005ECCF /* SearchViewModel.swift in Sources */,
 				C43231AF260F797500733E1A /* ProductDetailsViewModel.swift in Sources */,
 				C43231D2260F847200733E1A /* ProductDetailsViewController.swift in Sources */,
+				C479383B260FF98200BE5187 /* ToastManager.swift in Sources */,
 				C43231A3260F760D00733E1A /* ProductDetails.swift in Sources */,
+				C46E3B662610B44F00C89E8B /* LoadingViewController.swift in Sources */,
 				C41A52AB260E6F9F005FD9C3 /* MercadoLibreAPI.swift in Sources */,
+				C4793835260FEB9600BE5187 /* Constants.swift in Sources */,
 				C47A541D260E63D10093335D /* SearchResultsViewController.swift in Sources */,
 				C43231D6260F860F00733E1A /* UIStoryboard+Extensions.swift in Sources */,
 				C4CB8682260EBC2C00C2E0B2 /* Array+Extensions.swift in Sources */,
+				C4793847260FFC3D00BE5187 /* ToastMessageView.swift in Sources */,
 				C47A5419260E63D10093335D /* AppDelegate.swift in Sources */,
 				C47A544D260E64CE0093335D /* SearchResult.swift in Sources */,
 				C43231DC260F8B8700733E1A /* ProductDetailsView.swift in Sources */,
 				C4076928260E78C70005ECCF /* ProductSearchResultsCell.swift in Sources */,
 				C47A541B260E63D10093335D /* SceneDelegate.swift in Sources */,
+				C4793831260FE94F00BE5187 /* Numeric+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +543,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.decaroj.MercadoLibre;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.danielcardona.MercadoLibre;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -520,7 +561,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.decaroj.MercadoLibre;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.danielcardona.MercadoLibre;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
