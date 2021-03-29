@@ -24,13 +24,13 @@ class ProductDetailsDelegateSpy: ProductDetailsViewModelDelegate {
 
 class ProductDetailsViewModelTests: XCTestCase {
     var sut: ProductDetailsViewModel! // System under test
-    weak var mockDelegate: ProductDetailsDelegateSpy!
+    var mockView: ProductDetailsDelegateSpy!
     var mockData: MockDataClientHijacker!
 
     override func setUp() {
         sut = ProductDetailsViewModel()
-        mockDelegate = ProductDetailsDelegateSpy()
-        sut.delegate = mockDelegate
+        mockView = ProductDetailsDelegateSpy()
+        sut.delegate = mockView
         mockData = MockDataClientHijacker()
         sut.client.hijacker = mockData
     }
@@ -39,7 +39,7 @@ class ProductDetailsViewModelTests: XCTestCase {
         // Arrange
         let expectation = XCTestExpectation(description: "Call delegate with product")
 
-        mockDelegate.configurationHandler = { product in
+        mockView.configurationHandler = { product in
             let isValidProduct = !product.pictures.isEmpty
             if isValidProduct {
                 expectation.fulfill()
@@ -73,11 +73,11 @@ class ProductDetailsViewModelTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "Calls delegate with error")
 
-        mockDelegate.configurationHandler = { _ in
+        mockView.configurationHandler = { _ in
             expectationDoesNotCallSuccess.fulfill()
         }
 
-        mockDelegate.errorHandler = { _ in
+        mockView.errorHandler = { _ in
             expectation.fulfill()
         }
 

@@ -19,16 +19,20 @@ class ProductSearchViewModel {
     weak var delegate: ProductSearchViewModelDelegate?
 
     var isLoading: Bool = false
-    let pageSize = 30
+    var pageSize = 30
 
     var products = [ProductSearchResult]()
 
     var query: String? {
         didSet {
-            if oldValue != query {
+            if oldValue != query, oldValue != nil {
                 resetPaging()
             }
         }
+    }
+
+    var remainingItems: Int? {
+        totalItems.map({ $0 - offset - 1})
     }
 
     private var disposables = Set<AnyCancellable>()
@@ -65,7 +69,15 @@ class ProductSearchViewModel {
             return
         }
 
-        let limit = pageSize
+        var limit = pageSize
+
+        if let remaining = remainingItems {
+            limit = remaining > pageSize ? pageSize : remaining
+            if remaining <= 0 {
+                return
+            }
+
+        }
 
         print("Loading items \(offset) through: \(offset + limit - 1)")
 

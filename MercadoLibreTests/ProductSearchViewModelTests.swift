@@ -73,4 +73,51 @@ class ProductSearchViewModelTests: XCTestCase {
         wait(for: [callsCompletionWithNewItems], timeout: 3.0)
     }
 
+    func testDoesNotCallAPIForOffsetGreaterThanTotalItemCount() {
+        let totalItemCount = 200
+        let pageSize = 10
+        let doesNotCallCompletion = XCTestExpectation()
+        doesNotCallCompletion.isInverted = true
+
+        sut.query = "keyboards"
+        sut.pageSize = pageSize
+        sut.totalItems = totalItemCount
+        sut.offset = totalItemCount - 1
+
+        sut.fetch(completion: { _ in
+            doesNotCallCompletion.fulfill()
+        })
+
+        wait(for: [doesNotCallCompletion], timeout: 2)
+
+    }
+
+    func testDoesCallAPIIfRemainingItemsAreLessThanPageSize() {
+        let totalItemCount = 200
+        let pageSize = 10
+        let doesNotCallCompletion = XCTestExpectation()
+
+        sut.query = "keyboards"
+        sut.pageSize = pageSize
+        sut.totalItems = totalItemCount
+        sut.offset = totalItemCount - (pageSize / 2)
+
+        let testData = SearchResults(siteId: "MCO",
+                                     paging: PagingParams(total: 0, offset: 0, limit: 0),
+                                     results: Array(repeating:
+                                                        ProductSearchResult(id: "1",
+                                                                            title: "test prodcut",
+                                                                            price: 2.4, thumbnail: ""),
+                                                    count: pageSize / 2))
+
+        mockData.registerSubstitute(testData, requestThatMatches: .any)
+
+        sut.fetch(completion: { _ in
+            doesNotCallCompletion.fulfill()
+        })
+
+        wait(for: [doesNotCallCompletion], timeout: 2)
+
+    }
+
 }
