@@ -214,6 +214,10 @@ extension SearchResultsViewController: ProductSearchViewModelDelegate {
     func didNotFindResults(for query: String) {
         renderStatus(.empty)
     }
+
+    func handleNetworkError(_ error: Error) {
+        ToastManager.sharedInstance.queue(toast: "Oops algo and mal, intentalo luego")
+    }
 }
 
 // MARK: - UISearchBarDelegate

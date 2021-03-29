@@ -11,6 +11,7 @@ import APIClient
 
 protocol ProductSearchViewModelDelegate: class {
     func didNotFindResults(for query: String)
+    func handleNetworkError(_ error: Error)
 }
 
 class ProductSearchViewModel {
@@ -88,8 +89,11 @@ class ProductSearchViewModel {
 
         client.request(endpoint)
             .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { _ in
+            .sink(receiveCompletion: { complete in
                 self.isLoading = false
+                if case .failure(let error) = complete {
+                    self.delegate?.handleNetworkError(error)
+                }
         }, receiveValue: { searchResponse in
             self.totalItems = searchResponse.paging.total
             self.addItems(searchResponse.results)
@@ -105,11 +109,10 @@ class ProductSearchViewModel {
         products = []
         totalItems = nil
     }
-    
+
     private func addItems(_ newFetchedItems: [ProductSearchResult]) {
         products.append(contentsOf: newFetchedItems)
         offset = products.count - 1
     }
-
 
 }
