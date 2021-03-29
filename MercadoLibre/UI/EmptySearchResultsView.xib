@@ -16,19 +16,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No encontramos publicaciones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAS-Ah-mev">
-                    <rect key="frame" x="71.5" y="251" width="271" height="24"/>
+                    <rect key="frame" x="71.5" y="441" width="271" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" systemColor="secondaryLabelColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Revisa que la palabra este bien escrita. Tambien pudes probar con menos terminos o mas generales" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raE-gC-R9D">
-                    <rect key="frame" x="12" y="287" width="390" height="61"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="24" y="477" width="366" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" systemColor="tertiaryLabelColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cBa-fE-oER">
-                    <rect key="frame" x="142" y="104.5" width="130" height="114"/>
+                    <rect key="frame" x="142" y="294.5" width="130" height="114"/>
                     <color key="tintColor" red="0.49803921569999998" green="0.49019607840000001" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="cBa-fE-oER" secondAttribute="height" multiplier="26:23" id="EL1-Pi-CPd"/>
@@ -40,12 +40,12 @@
             <color key="backgroundColor" systemColor="systemGray5Color"/>
             <constraints>
                 <constraint firstItem="cBa-fE-oER" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="AU1-wh-de0"/>
-                <constraint firstItem="cBa-fE-oER" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="60" id="DWG-Em-jMc"/>
                 <constraint firstItem="ZAS-Ah-mev" firstAttribute="centerX" secondItem="cBa-fE-oER" secondAttribute="centerX" id="HPh-N7-pUK"/>
                 <constraint firstItem="raE-gC-R9D" firstAttribute="centerX" secondItem="ZAS-Ah-mev" secondAttribute="centerX" id="V05-n1-b6b"/>
+                <constraint firstItem="ZAS-Ah-mev" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="XTq-vr-UWN"/>
                 <constraint firstItem="ZAS-Ah-mev" firstAttribute="top" secondItem="cBa-fE-oER" secondAttribute="bottom" constant="32" id="gcJ-X6-iO5"/>
                 <constraint firstItem="raE-gC-R9D" firstAttribute="top" secondItem="ZAS-Ah-mev" secondAttribute="bottom" constant="12" id="gv7-mP-H35"/>
-                <constraint firstItem="raE-gC-R9D" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" constant="-24" id="liI-WH-1Up"/>
+                <constraint firstItem="raE-gC-R9D" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" constant="-48" id="liI-WH-1Up"/>
             </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="83.705357142857139"/>
         </view>

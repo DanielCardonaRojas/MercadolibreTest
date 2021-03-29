@@ -15,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationProxy.backgroundColor = .mercadolibreYellow
         navigationProxy.barTintColor = .mercadolibreYellow
         navigationProxy.tintColor = .darkText
-        UILabel.appearance().textColor = .defaultTextColor
-
     }
 
     private lazy var statusBar: UIView = UIView()

@@ -31,6 +31,7 @@ class ProductSearchViewModel {
         }
     }
 
+    /// The remaining items on the server
     var remainingItems: Int? {
         totalItems.map({ $0 - offset - 1})
     }
@@ -40,6 +41,11 @@ class ProductSearchViewModel {
     var offset: Int = 0
     var totalItems: Int?
 
+    /**
+            Perfoms a fresh search, clearing out previous results
+            - Parameter completion: A closure receiving the new items fetched
+     
+     */
     func search(_ search: String, completion: @escaping ([ProductSearchResult]) -> Void) {
         let isNewQuery = query.map { $0 != search } ?? true
 
@@ -51,11 +57,6 @@ class ProductSearchViewModel {
         query = search
         fetch(completion: completion)
 
-    }
-
-    private func addItems(_ newFetchedItems: [ProductSearchResult]) {
-        products.append(contentsOf: newFetchedItems)
-        offset = products.count - 1
     }
 
     /**
@@ -104,5 +105,11 @@ class ProductSearchViewModel {
         products = []
         totalItems = nil
     }
+    
+    private func addItems(_ newFetchedItems: [ProductSearchResult]) {
+        products.append(contentsOf: newFetchedItems)
+        offset = products.count - 1
+    }
+
 
 }

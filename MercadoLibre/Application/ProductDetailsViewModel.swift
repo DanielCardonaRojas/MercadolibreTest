@@ -26,8 +26,7 @@ class ProductDetailsViewModel {
 
     var itemId: String?
 
-    // MARK: Bindable properties
-
+    /// Fetches the product details for the associated property `itemId` of this class
     func fetchItem() {
         guard let productId = itemId else {
             return
