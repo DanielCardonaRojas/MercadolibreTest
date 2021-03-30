@@ -6,6 +6,8 @@ A Mercado libre client, searching and displaying a product list and detail scree
 
 This app consumes the search, products and suggestions API from: https://api.mercadolibre.com
 
+![preview](https://github.com/DanielCardonaRojas/MercadolibreTest/blob/main/mercado_libre_clone.gif)
+
 # Features
 
 - Shows paginated search results, landscape (2 items per row) and portrait
