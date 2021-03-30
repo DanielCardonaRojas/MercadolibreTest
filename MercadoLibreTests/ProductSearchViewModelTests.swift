@@ -18,7 +18,7 @@ class ProductSearchDelegateSpy: ProductSearchViewModelDelegate {
     func didNotFindResults(for query: String) {
         noResultsHandler?(query)
     }
-    
+
     func handleNetworkError(_ error: Error) {
         handleNetworkError?(error)
     }

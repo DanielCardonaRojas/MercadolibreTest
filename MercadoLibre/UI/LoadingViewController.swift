@@ -6,32 +6,37 @@
 //
 
 import UIKit
+import Lottie
 
 class LoadingViewController: UIViewController {
-    lazy var spinner: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        return indicator
+
+    lazy var animatedView: AnimationView = {
+        let av = AnimationView(name: "loading")
+        av.translatesAutoresizingMaskIntoConstraints = false
+        av.loopMode = .loop
+        av.animationSpeed = 2
+        return av
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(spinner)
+        view.addSubview(animatedView)
         view.backgroundColor = .white
 
         NSLayoutConstraint.activate {
-            spinner.relativeTo(view, positioned: .centered)
+            animatedView.relativeTo(view, positioned: .centered)
+            animatedView.constrainedBy(.aspectRatio(1) + .constantWidth(150))
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        spinner.startAnimating()
+        animatedView.play()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        spinner.stopAnimating()
+        animatedView.stop()
     }
 
 }

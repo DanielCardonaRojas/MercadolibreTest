@@ -52,9 +52,9 @@ class SuggestionsViewController: UIViewController {
             cell.selectionStyle = .none
             return cell
         }
-        
+
         datasource.defaultRowAnimation = .fade
-        
+
         return datasource
     }
 

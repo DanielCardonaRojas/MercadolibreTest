@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9FE5051261358F50078E5D5 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B9FE5050261358F50078E5D5 /* Lottie */; };
+		B9FE505B26135E330078E5D5 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B9FE505A26135E330078E5D5 /* loading.json */; };
 		C4076924260E76F50005ECCF /* ProductSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4076923260E76F50005ECCF /* ProductSearchViewModel.swift */; };
 		C4076928260E78C70005ECCF /* ProductSearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4076927260E78C70005ECCF /* ProductSearchResultsCell.swift */; };
 		C41A52AB260E6F9F005FD9C3 /* MercadoLibreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41A52AA260E6F9F005FD9C3 /* MercadoLibreAPI.swift */; };
@@ -57,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B9FE505A26135E330078E5D5 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		C4076923260E76F50005ECCF /* ProductSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchViewModel.swift; sourceTree = "<group>"; };
 		C4076927260E78C70005ECCF /* ProductSearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchResultsCell.swift; sourceTree = "<group>"; };
 		C41A52AA260E6F9F005FD9C3 /* MercadoLibreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLibreAPI.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9FE5051261358F50078E5D5 /* Lottie in Frameworks */,
 				C4793821260FB28900BE5187 /* Auk in Frameworks */,
 				C43231C9260F801100733E1A /* APIClient in Frameworks */,
 				C43231CE260F802800733E1A /* KeypathAutolayout in Frameworks */,
@@ -118,6 +122,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9FE5056261359B80078E5D5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B9FE505926135E190078E5D5 /* Animations */,
+				C47A5421260E63D30093335D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B9FE505926135E190078E5D5 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				B9FE505A26135E330078E5D5 /* loading.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		C41A52A5260E6F27005FD9C3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +210,7 @@
 				C47A5418260E63D10093335D /* AppDelegate.swift */,
 				C47A541A260E63D10093335D /* SceneDelegate.swift */,
 				C47A541E260E63D10093335D /* Main.storyboard */,
-				C47A5421260E63D30093335D /* Assets.xcassets */,
+				B9FE5056261359B80078E5D5 /* Resources */,
 				C47A5423260E63D30093335D /* LaunchScreen.storyboard */,
 				C47A5426260E63D30093335D /* Info.plist */,
 			);
@@ -263,6 +284,7 @@
 				C43231C8260F801100733E1A /* APIClient */,
 				C43231CD260F802800733E1A /* KeypathAutolayout */,
 				C4793820260FB28900BE5187 /* Auk */,
+				B9FE5050261358F50078E5D5 /* Lottie */,
 			);
 			productName = MercadoLibre;
 			productReference = C47A5415260E63D10093335D /* MercadoLibre.app */;
@@ -318,6 +340,7 @@
 				C43231C7260F801100733E1A /* XCRemoteSwiftPackageReference "APIClient" */,
 				C43231CC260F802800733E1A /* XCRemoteSwiftPackageReference "KeypathAutolayout" */,
 				C479381F260FB28900BE5187 /* XCRemoteSwiftPackageReference "Auk" */,
+				B9FE504F261358F50078E5D5 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = C47A5416260E63D10093335D /* Products */;
 			projectDirPath = "";
@@ -338,6 +361,7 @@
 				C46E3B752610EB1C00C89E8B /* EmptySearchResultsView.xib in Resources */,
 				C47A5422260E63D30093335D /* Assets.xcassets in Resources */,
 				C47A5420260E63D10093335D /* Main.storyboard in Resources */,
+				B9FE505B26135E330078E5D5 /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +590,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = L6BZS62EE3;
 				INFOPLIST_FILE = MercadoLibre/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -585,6 +610,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = L6BZS62EE3;
 				INFOPLIST_FILE = MercadoLibre/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -673,6 +699,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B9FE504F261358F50078E5D5 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
 		C43231C2260F7FCF00733E1A /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -708,6 +742,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B9FE5050261358F50078E5D5 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9FE504F261358F50078E5D5 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		C43231C3260F7FCF00733E1A /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C43231C2260F7FCF00733E1A /* XCRemoteSwiftPackageReference "SDWebImage" */;
