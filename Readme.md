@@ -13,6 +13,7 @@ This app consumes the search, products and suggestions API from: https://api.mer
 - Shows paginated search results, landscape (2 items per row) and portrait
 - Shows suggestion while typing in search bar
 - Shows product detail information
+- Empty state for no results
 
 # About this project
 
@@ -66,5 +67,6 @@ that I have developed in the past which provide more declarative style [KeypathA
 A couple extra dependencies have been used to fetch images from the network
 and to create a image gallery which would be a very time consuming task otherwise.
 
-- Images from network [SDWebImage]()
-- Image gallery [Auk]()
+- Images from network [SDWebImage](https://github.com/SDWebImage/SDWebImage)
+- Image gallery [Auk](https://github.com/evgenyneu/Auk)
+- Spinner animation [Lottie](https://github.com/airbnb/lottie-ios)

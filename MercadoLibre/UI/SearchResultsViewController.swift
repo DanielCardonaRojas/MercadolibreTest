@@ -57,7 +57,9 @@ class SearchResultsViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
 
-        self.navigationItem.searchController = searchController
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+
         (UIApplication.shared.delegate as? AppDelegate)?.setStatusBar()
 
         view.addSubview(emptyStateView)
