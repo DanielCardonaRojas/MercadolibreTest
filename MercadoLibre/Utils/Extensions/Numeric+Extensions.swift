@@ -12,6 +12,7 @@ extension Double {
         let formatter = NumberFormatter()
         formatter.locale = Locale.current
         formatter.numberStyle = .currency
-        return formatter.string(from: self as NSNumber)!
+        let string = formatter.string(from: self as NSNumber)!
+        return String(string.prefix(while: { $0 != "." }))
     }
 }

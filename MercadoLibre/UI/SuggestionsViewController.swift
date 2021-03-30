@@ -86,7 +86,6 @@ extension SuggestionsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected suggestion")
         if let suggestion = viewModel.suggestions[safe: indexPath.row] {
             onSuggestionSelected?(suggestion)
         }

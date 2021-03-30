@@ -69,7 +69,6 @@ class SearchResultsViewController: UIViewController {
     }
 
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        print("Will transition to \(newCollection)")
         isGrid = UIDevice.current.orientation.isLandscape
         collectionView.collectionViewLayout.invalidateLayout()
         view.setNeedsLayout()
@@ -108,7 +107,7 @@ class SearchResultsViewController: UIViewController {
     private func onSuggestionSelected(_ suggestion: Suggestion) {
         search(suggestion.suggestedQuery)
         searchController.searchBar.endEditing(true)
-
+        searchController.searchBar.text = suggestion.suggestedQuery
     }
 
     // MARK: - Configurations
@@ -218,6 +217,7 @@ extension SearchResultsViewController: ProductSearchViewModelDelegate {
 
     func handleNetworkError(_ error: Error) {
         ToastManager.sharedInstance.queue(toast: "Oops algo and mal, intentalo luego")
+        renderStatus(.empty)
     }
 }
 

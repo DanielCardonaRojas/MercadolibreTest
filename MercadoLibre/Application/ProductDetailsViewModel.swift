@@ -45,7 +45,6 @@ class ProductDetailsViewModel {
             })
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { complete in
-                print("Complete \(complete)")
                 if case .failure(let error) = complete {
                     self.delegate?.handleFetchError(error)
                 }

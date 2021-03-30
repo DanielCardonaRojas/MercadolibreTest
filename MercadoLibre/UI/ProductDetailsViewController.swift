@@ -44,10 +44,16 @@ class ProductDetailsViewController: UIViewController {
         carouselContainer.clipsToBounds = true
         carouselScrollView.auk.settings.contentMode = .scaleAspectFit
         carouselScrollView.auk.settings.placeholderImage = UIImage.mercadolibreLogoGrey
+        carouselScrollView.auk.settings.preloadRemoteImagesAround = 2
     }
 }
 
+// MARK: - ProductDetailsViewModelDelegate
 extension ProductDetailsViewController: ProductDetailsViewModelDelegate {
+    func handleFetchError(_ error: Error) {
+        ToastManager.sharedInstance.queue(toast: "Oops parece que algo anda mal")
+    }
+    
     func configure(with product: ProductDetails) {
         if carouselScrollView.auk.numberOfPages == 0 {
             product.pictures.forEach({ picture in
