@@ -1,0 +1,17 @@
+name: Unit tests
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run tests
+      run: xcodebuild clean test -project 'MercadoLibre.xcodeproj' -scheme 'MercadoLibre' -destination "platform=iOS Simulator,name=iPhone 11,OS=latest"
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1.2.1

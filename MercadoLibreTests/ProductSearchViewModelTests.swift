@@ -11,10 +11,16 @@ import APIClient
 @testable import MercadoLibre
 
 class ProductSearchDelegateSpy: ProductSearchViewModelDelegate {
+
     var noResultsHandler: ((String) -> Void)?
+    var handleNetworkError: ((Error) -> Void)?
 
     func didNotFindResults(for query: String) {
         noResultsHandler?(query)
+    }
+    
+    func handleNetworkError(_ error: Error) {
+        handleNetworkError?(error)
     }
 
 }
