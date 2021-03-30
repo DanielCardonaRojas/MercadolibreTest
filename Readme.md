@@ -1,27 +1,28 @@
 # Mercadolibre Clone
 
-A simple app, searching and displaying a product list, and detail screen.
+[![Unit tests](https://github.com/DanielCardonaRojas/MercadolibreTest/actions/workflows/CI.yaml/badge.svg)](https://github.com/DanielCardonaRojas/MercadolibreTest/actions/workflows/CI.yaml)
 
-This app consumes the search and items API from: https://api.mercadolibre.com
+A Mercado libre client, searching and displaying a product list and detail screen.
+
+This app consumes the search, products and suggestions API from: https://api.mercadolibre.com
 
 # Features
 
-- Shows paginates search results, landscape (2 items per row) and portrait
-- Shows suggestion while typing
+- Shows paginated search results, landscape (2 items per row) and portrait
+- Shows suggestion while typing in search bar
 - Shows product detail information
 
 # About this project
 
-**Arquitecture**
+**Architecture**
 
-This app uses MVVM approach
+This app uses MVVM pattern
 
-The folder structure is simple generally I like to think of
-these main layers in any app. One benefit to this is that the app could be split
-into logical (modules/Frameworks) and be a Clean arquitecture
+The folder structure is simple and consists of 4 top level folder. 
+Each of which could be eventually become a logical (modules/Frameworks) in a Clean architecture style.
 
 - Data: All data manipulating classes, from remote to local data,
-  will usually also contain (DTO/Model) definitions
+  will usually also contain (DTO/Model) definitions.
 
 - Application: Where business logic goes. In this case where ViewModels will be located
 
@@ -55,9 +56,8 @@ which is a convenient light weight wrapper around URLSession.
 
 **Layout**
 
-Some layout in this app is done with Autolayout via code, for this I like to use some conveniences
-that I have developed in the past. Some simple conveniences that provide more declarative style
-to layout [KeypathAutoLayout](https://github.com/DanielCardonaRojas/KeypathAutolayout)
+All layout in this app is done with Autolayout via code or IB, for this I like to use some conveniences
+that I have developed in the past which provide more declarative style [KeypathAutoLayout](https://github.com/DanielCardonaRojas/KeypathAutolayout)
 
 **Image gallery and network images**
 

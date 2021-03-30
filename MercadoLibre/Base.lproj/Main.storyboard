@@ -108,7 +108,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripcion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbZ-SD-wWi">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbZ-SD-wWi">
                                                         <rect key="frame" x="8" y="59.5" width="382" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="ZJw-vm-Ra0"/>
@@ -119,11 +119,11 @@
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o19-JD-2PY">
                                                         <rect key="frame" x="8" y="93.5" width="382" height="451.5"/>
-                                                        <mutableString key="text">I don’t want to complain. It’s good to see the content layout guides show up in Interface Builder. It’s been two years since they were introduced with iOS 11 but better late than never. To complete the picture I’d like to see Apple also expose the layout margin guide for the scroll view.
+                                                        <string key="text">I don’t want to complain. It’s good to see the content layout guides show up in Interface Builder. It’s been two years since they were introduced with iOS 11 but better late than never. To complete the picture I’d like to see Apple also expose the layout margin guide for the scroll view.
 
 Sometimes you want a view that remains fixed in the scroll view frame so that it floats over the scrollable content. For example, the info button in my previous example remains fixed in the top-left corner when the content scrolls The frame layout guide doesn’t help in this case as it extends into the safe area behind the navigation bar. I created constraints in code to fix the button to the layout margins guide of the scroll view: I don’t want to complain. It’s good to see the content layout guides show up in Interface Builder. It’s been two years since they were introduced with iOS 11 but better late than never. To complete the picture I’d like to see Apple also expose the layout margin guide for the scroll view. I don’t want to complain. It’s good to see the content layout guides show up in Interface Builder. It’s been two years since they were introduced with iOS 11 but better late than never. To complete the picture I’d like to see Apple also expose the layout margin guide for the scroll view.
 
-</mutableString>
+</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>

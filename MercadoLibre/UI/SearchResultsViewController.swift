@@ -39,6 +39,7 @@ class SearchResultsViewController: UIViewController {
         search.searchBar.searchBarStyle = .prominent
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.delegate = self
+        search.searchBar.placeholder = "Buscar en Mercadolibre"
         return search
     }()
 

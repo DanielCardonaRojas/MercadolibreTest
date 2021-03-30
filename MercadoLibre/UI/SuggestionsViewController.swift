@@ -46,12 +46,16 @@ class SuggestionsViewController: UIViewController {
     }
 
     private func makeDiffableDatasource() -> UITableViewDiffableDataSource<Section, Suggestion> {
-        return UITableViewDiffableDataSource<Section, Suggestion>(tableView: tableView) { (tableView, indexpath, suggestion) -> UITableViewCell? in
+        let datasource = UITableViewDiffableDataSource<Section, Suggestion>(tableView: tableView) { (tableView, indexpath, suggestion) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: "SuggestionCell", for: indexpath)
             cell.textLabel?.text = suggestion.suggestedQuery
             cell.selectionStyle = .none
             return cell
         }
+        
+        datasource.defaultRowAnimation = .fade
+        
+        return datasource
     }
 
     private func updateTableView(suggestions: [Suggestion]) {
