@@ -15,6 +15,6 @@ extension UIColor {
 }
 
 extension UIImage {
-    static let mercadolibreLogoGrey = UIImage(named: "mercadolibre_logo_grey")
-
+    static let mercadolibreLogoGrey = UIImage(named: "mercadolibre_logo_gray")
+    static let mercadolibreNewLogoGrey = UIImage(named: "mercadolibre_newlogo_gray")
 }
